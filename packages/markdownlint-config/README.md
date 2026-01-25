@@ -1,4 +1,4 @@
-# @spec/markdownlint-config
+# @lint-spec/markdownlint-config
 
 > markdownlint 文档 规范
 
@@ -9,7 +9,7 @@
 需要先行安装 [markdownlint](https://www.npmjs.com/package/markdownlint)：
 
 ```bash
-npm install @spec/markdownlint-config markdownlint --save-dev
+npm install @lint-spec/markdownlint-config markdownlint --save-dev
 ```
 
 ## 使用
@@ -18,6 +18,6 @@ npm install @spec/markdownlint-config markdownlint --save-dev
 
 ```json
 {
-	"extends": "@spec/markdownlint-config"
+	"extends": "@lint-spec/markdownlint-config"
 }
 ```
