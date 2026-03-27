@@ -32,7 +32,7 @@ const initAction = async (option: InitOption) => {
 
   // 版本检查
   if (!isTest && checkVersionUpdate) {
-    // await updateVersionAction(false);
+    await updateVersionAction(false);
   }
 
   // 初始化`enableESLint`，默认为true，无需让用户选择
