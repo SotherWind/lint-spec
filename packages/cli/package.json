@@ -1,7 +1,7 @@
 {
   "name": "@lint-spec/cli",
   "version": "1.0.9",
-  "description": "",
+  "description": "cli",
   "module": "dist/index.js",
   "types": "dist/index.d.ts",
   "bin": {
