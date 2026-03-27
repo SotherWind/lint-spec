@@ -18,6 +18,10 @@
   "bugs": {
     "url": "https://github.com/encode-studio-fe/fe-spec/issues"
   },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
   "peerDependencies": {
     "markdownlint": "^0.40.0"
   }

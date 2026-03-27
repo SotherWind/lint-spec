@@ -74,5 +74,9 @@
     "typescript-eslint": "^8.54.0",
     "vue-eslint-parser": "^10.2.0"
   },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
   "gitHead": "b0bfba9810f1da460cf09cf9aabeeaae2650596f"
 }
