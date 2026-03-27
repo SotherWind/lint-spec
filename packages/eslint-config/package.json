@@ -6,8 +6,7 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "build": "rimraf dist && tsc && tsc-alias",
-    "test": "mocha ./__tests__/**/*.test.js --timeout=5000",
-    "prepublishOnly": "npm run test"
+    "test": "mocha ./__tests__/**/*.test.js --timeout=5000"
   },
   "keywords": [
     "eslint",
@@ -75,5 +74,6 @@
   },
   "engines": {
     "node": ">=20.19.0"
-  }
+  },
+  "gitHead": "8877a8c703d9f5f03f8904c68ab989f10ddbb18e"
 }
