@@ -1,6 +1,6 @@
 {
   "name": "@lint-spec/eslint-plugin",
-  "version": "1.0.3",
+  "version": "1.0.8",
   "description": "",
   "main": "lib/index.js",
   "packageManager": "pnpm@10.29.2",
