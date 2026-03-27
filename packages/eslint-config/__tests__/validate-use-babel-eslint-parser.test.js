@@ -8,7 +8,7 @@ const __dirname = dirname(__filename);
 
 describe('Validate Use Babel Eslint Parser For React', () => {
   let eslint;
-  const configPath = './lib/react.js';
+  const configPath = './dist/react.js';
   const filePath = join(__dirname, './fixtures/use-babel-eslint-parser.jsx');
 
   beforeEach(() => {
@@ -36,7 +36,7 @@ describe('Validate Use Babel Eslint Parser For React', () => {
 
 describe('Validate Use Babel Eslint Parser For Vue', () => {
   let eslint;
-  const configPath = './lib/vue.js';
+  const configPath = './dist/vue.js';
   const filePath = join(__dirname, './fixtures/vue.vue');
 
   beforeEach(() => {

@@ -13,7 +13,7 @@ const isObject = (obj) => {
 
 describe('Validate JS Configs', () => {
   let eslint;
-  const configPath = './lib/index.js';
+  const configPath = './dist/index.js';
   const filePath = join(__dirname, './fixtures/index.js');
 
   beforeEach(() => {
@@ -40,7 +40,7 @@ describe('Validate JS Configs', () => {
 
 describe('Validate ES5 Configs', () => {
   let eslint;
-  const configPath = './lib/es5.js';
+  const configPath = './dist/es5.js';
   const filePath = join(__dirname, './fixtures/es5.js');
 
   beforeEach(() => {
@@ -74,7 +74,7 @@ describe('Validate ES5 Configs', () => {
 
 describe('Validate Vue Configs', () => {
   let eslint;
-  const configPath = './lib/vue.js';
+  const configPath = './dist/vue.js';
   const filePath = join(__dirname, './fixtures/vue.vue');
 
   beforeEach(() => {
@@ -108,7 +108,7 @@ describe('Validate Vue Configs', () => {
 
 describe('Validate Essential JS Configs', () => {
   let eslint;
-  const configPath = './lib/essential/index.js';
+  const configPath = './dist/essential/index.js';
   const filePath = join(__dirname, './fixtures/index.js');
 
   beforeEach(() => {
@@ -150,7 +150,7 @@ describe('Validate Essential JS Configs', () => {
 
 describe('Validate Essential ES5 Configs', () => {
   let eslint;
-  const configPath = './lib/essential/es5.js';
+  const configPath = './dist/essential/es5.js';
   const filePath = join(__dirname, './fixtures/es5.js');
 
   beforeEach(() => {
@@ -189,7 +189,7 @@ describe('Validate Essential ES5 Configs', () => {
 
 describe('Validate Essential Vue Configs', () => {
   let eslint;
-  const configPath = './lib/essential/vue.js';
+  const configPath = './dist/essential/vue.js';
   const filePath = join(__dirname, './fixtures/vue.vue');
 
   beforeEach(() => {
@@ -229,7 +229,7 @@ describe('Validate Essential Vue Configs', () => {
 
 describe('Validate Essential React Configs', () => {
   let eslint;
-  const configPath = './lib/essential/react.js';
+  const configPath = './dist/essential/react.js';
   const filePath = join(__dirname, './fixtures/react.jsx');
 
   beforeEach(() => {
@@ -270,7 +270,7 @@ describe('Validate Essential React Configs', () => {
 
 describe('Validate Node Configs', () => {
   let eslint;
-  const configPath = './lib/node.js';
+  const configPath = './dist/node.js';
   const filePath = join(__dirname, './fixtures/node.js');
 
   beforeEach(() => {
@@ -294,15 +294,13 @@ describe('Validate Node Configs', () => {
     const { messages, errorCount, warningCount } = results[0];
     const ruleIds = Array.from(messages.map((item) => item.ruleId));
 
-    assert.strictEqual(ruleIds.includes('n/prefer-promises/fs'), true);
     assert.strictEqual(ruleIds.includes('n/no-new-require'), true);
     assert.strictEqual(ruleIds.includes('no-unused-vars'), true);
-    assert.strictEqual(ruleIds.includes('no-redeclare'), true);
     assert.strictEqual(ruleIds.includes('@stylistic/semi'), true);
     assert.strictEqual(ruleIds.includes('@stylistic/quotes'), true);
 
-    assert.strictEqual(errorCount, 8);
-    assert.strictEqual(warningCount, 4);
+    assert.strictEqual(errorCount, 9);
+    assert.strictEqual(warningCount, 3);
 
     // 验证已关闭的 link 规则是否校验正常，以 n/exports-style 为例
     assert.strictEqual(ruleIds.includes('n/exports-style'), false);

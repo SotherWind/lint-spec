@@ -16,7 +16,7 @@ const isObject = (obj) => {
 
 describe('Validate TS Configs', () => {
   let eslint;
-  const configPath = './lib/typescript/index.js';
+  const configPath = './dist/typescript/index.js';
   const filePath = join(__dirname, './fixtures/ts.ts');
   const tsConfigPath = join(__dirname, './fixtures/tsconfig.json');
 
@@ -74,7 +74,7 @@ describe('Validate TS Configs', () => {
 
 describe('Validate VUE TS Configs', () => {
   let eslint;
-  const configPath = './lib/typescript/vue.js';
+  const configPath = './dist/typescript/vue.js';
   const filePath = join(__dirname, './fixtures/ts-vue.vue');
   const tsConfigPath = join(__dirname, './fixtures/tsconfig.json');
 
@@ -124,7 +124,7 @@ describe('Validate VUE TS Configs', () => {
 
 describe('Validate React TS Configs', () => {
   let eslint;
-  const configPath = './lib/typescript/react.js';
+  const configPath = './dist/typescript/react.js';
   const filePath = join(__dirname, './fixtures/ts-react.tsx');
   const tsConfigPath = join(__dirname, './fixtures/tsconfig.json');
 
@@ -174,7 +174,7 @@ describe('Validate React TS Configs', () => {
 
 describe('Validate Node TS Configs', () => {
   let eslint;
-  const configPath = './lib/typescript/node.js';
+  const configPath = './dist/typescript/node.js';
   const filePath = join(__dirname, './fixtures/ts-node.ts');
   const tsConfigPath = join(__dirname, './fixtures/tsconfig.json');
 
@@ -229,7 +229,7 @@ describe('Validate Node TS Configs', () => {
 
 describe('Validate Essential TS Configs', () => {
   let eslint;
-  const configPath = './lib/essential/typescript/index.js';
+  const configPath = './dist/essential/typescript/index.js';
   const filePath = join(__dirname, './fixtures/ts.ts');
   const tsConfigPath = join(__dirname, './fixtures/tsconfig.json');
 
@@ -281,7 +281,7 @@ describe('Validate Essential TS Configs', () => {
 
 describe('Validate Essential React TS Configs', () => {
   let eslint;
-  const configPath = './lib/essential/typescript/react.js';
+  const configPath = './dist/essential/typescript/react.js';
   const filePath = join(__dirname, './fixtures/ts-react.tsx');
   const tsConfigPath = join(__dirname, './fixtures/tsconfig.json');
 
@@ -343,7 +343,7 @@ describe('Validate Essential React TS Configs', () => {
 
 describe('Validate Essential Vue TS Configs', () => {
   let eslint;
-  const configPath = './lib/essential/typescript/vue.js';
+  const configPath = './dist/essential/typescript/vue.js';
   const filePath = join(__dirname, './fixtures/ts-vue.vue');
   const tsConfigPath = join(__dirname, './fixtures/tsconfig.json');
 
