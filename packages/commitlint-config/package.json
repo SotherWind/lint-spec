@@ -1,6 +1,6 @@
 {
   "name": "@lint-spec/commitlint-config",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Lint commit messages",
   "main": "index.js",
   "keywords": [
