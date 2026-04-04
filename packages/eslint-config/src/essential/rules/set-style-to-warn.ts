@@ -1,4 +1,4 @@
-import styleRuleConfig from '../../rules/base/style';
+import styleRuleConfig from '@/rules/base/style';
 
 /**
  * 将 error 级别的 style 规则降级为 warn

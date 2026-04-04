@@ -1,9 +1,9 @@
 import { defineConfig } from 'vitepress';
 
 export default defineConfig({
-  title: '印客学院',
+  title: 'lint-spec',
   description: '前端编码规范工程化',
-  // base: '/fe-spec/',
+  base: '/lint-spec/',
   lang: 'zh-CN',
   head: [
     ['link', { rel: 'icon', href: '/img/logo.png' }],
@@ -39,16 +39,25 @@ export default defineConfig({
       {
         text: 'NPM 包',
         items: [
-          { text: 'encode-fe-eslint-config', link: '/npm/eslint' },
-          { text: 'encode-fe-stylelint-config', link: '/npm/stylelint' },
-          { text: 'encode-fe-commitlint-config', link: '/npm/commitlint' },
-          { text: 'encode-fe-markdownlint-config', link: '/npm/markdownlint' },
-          { text: 'encode-fe-eslint-plugin', link: '/npm/eslint-plugin' },
+          { text: '@lint-spec/eslint-config', link: '/npm/eslint-config' },
+          {
+            text: '@lint-spec/stylelint-config',
+            link: '/npm/stylelint-config',
+          },
+          {
+            text: '@lint-spec/commitlint-config',
+            link: '/npm/commitlint-config',
+          },
+          {
+            text: '@lint-spec/markdownlint-config',
+            link: '/npm/markdownlint-config',
+          },
+          { text: '@lint-spec/eslint-plugin', link: '/npm/eslint-plugin' },
         ],
       },
       {
         text: '脚手架',
-        items: [{ text: 'encode-fe-lint', link: '/cli/encode-fe-lint' }],
+        items: [{ text: '@lint-spec/cli', link: '/cli/lint-spec' }],
       },
     ],
     sidebar: {
@@ -78,21 +87,27 @@ export default defineConfig({
         {
           text: 'NPM 包',
           items: [
-            { text: 'encode-fe-eslint-config', link: '/npm/eslint' },
-            { text: 'encode-fe-stylelint-config', link: '/npm/stylelint' },
-            { text: 'encode-fe-commitlint-config', link: '/npm/commitlint' },
+            { text: '@lint-spec/eslint-config', link: '/npm/eslint-config' },
             {
-              text: 'encode-fe-markdownlint-config',
-              link: '/npm/markdownlint',
+              text: '@lint-spec/stylelint-config',
+              link: '/npm/stylelint-config',
             },
-            { text: 'encode-fe-eslint-plugin', link: '/npm/eslint-plugin' },
+            {
+              text: '@lint-spec/commitlint-config',
+              link: '/npm/commitlint-config',
+            },
+            {
+              text: '@lint-spec/markdownlint-config',
+              link: '/npm/markdownlint-config',
+            },
+            { text: '@lint-spec/eslint-plugin', link: '/npm/eslint-plugin' },
           ],
         },
       ],
       '/cli/': [
         {
           text: '脚手架',
-          items: [{ text: 'encode-fe-lint', link: '/cli/encode-fe-lint' }],
+          items: [{ text: '@lint-spec/cli', link: '/cli/lint-spec' }],
         },
       ],
     },

@@ -1,7 +1,7 @@
-import es5Config from '../es5';
+import type { Linter } from 'eslint';
+import es5Config from '@/es5';
 import setStyleToWarnRuleConfig from './rules/set-style-to-warn';
 import blacklistRuleConfig from './rules/blacklist';
-import type { Linter } from 'eslint';
 
 export default [
   ...es5Config,

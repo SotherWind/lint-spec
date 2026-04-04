@@ -1,11 +1,10 @@
 import type { Linter } from 'eslint';
-
+import tseslint from 'typescript-eslint';
 /**
  * 本文件的规则由 @typescript-eslint 及 @stylistic/eslint-plugin 提供
  * @see https://typescript-eslint.io/rules
  * @see https://eslint.style/rules
  */
-import tseslint from 'typescript-eslint';
 
 export default [
   ...tseslint.configs.recommended,
@@ -174,8 +173,8 @@ export default [
     },
     languageOptions: {
       parserOptions: {
-        projectService: true,
-        tsconfigRootDir: import.meta.dirname,
+        project: './tsconfig.json',
+        createDefaultProgram: true,
         extraFileExtensions: ['.vue'],
       },
     },

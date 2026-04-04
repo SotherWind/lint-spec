@@ -63,7 +63,7 @@ export default {
     'max-classes-per-file': 'off',
 
     // 禁止使用 alert
-    'no-alert': 'error',
+    'no-alert': 'warn',
 
     // 禁止使用 arguments.caller 和 arguments.callee
     'no-caller': 'error',

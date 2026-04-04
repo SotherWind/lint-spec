@@ -1,7 +1,7 @@
-import tsParser from '@typescript-eslint/parser';
-import defaultTsConfig from './index';
-import vueRuleConfig from '../rules/vue';
 import type { Linter } from 'eslint';
+import vueRuleConfig from '@/rules/vue';
+import typescriptEslint from 'typescript-eslint';
+import defaultTsConfig from './index';
 
 export default [
   ...defaultTsConfig,
@@ -9,7 +9,7 @@ export default [
   {
     languageOptions: {
       parserOptions: {
-        parser: tsParser,
+        parser: typescriptEslint.parser,
       },
     },
   },

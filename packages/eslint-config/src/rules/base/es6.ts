@@ -42,7 +42,7 @@ export default {
       },
     ],
     // 生产环境禁止使用 console
-    'no-console': 'error',
+    'no-console': 'warn',
 
     // constructor 中必须调用 super
     'constructor-super': 'error',

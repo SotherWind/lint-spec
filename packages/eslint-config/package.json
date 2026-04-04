@@ -50,16 +50,12 @@
     },
     "./package.json": "./package.json"
   },
-  "peerDependencies": {
-    "eslint": ">= 9"
-  },
   "devDependencies": {
     "@babel/core": "^7.29.0",
     "@babel/eslint-parser": "^7.28.6",
     "@babel/preset-react": "^7.28.5",
     "@stylistic/eslint-plugin": "^5.7.1",
     "@types/eslint-plugin-jsx-a11y": "^6.10.1",
-    "@typescript-eslint/parser": "^8.54.0",
     "eslint": "^9.39.2",
     "eslint-import-resolver-typescript": "^4.4.4",
     "eslint-plugin-import": "^2.32.0",
@@ -72,12 +68,15 @@
     "typescript-eslint": "^8.54.0",
     "vue-eslint-parser": "^10.2.0"
   },
-  "publishConfig": {
-    "access": "public",
-    "registry": "https://registry.npmjs.org/"
+  "peerDependencies": {
+    "eslint": ">= 9"
   },
   "engines": {
     "node": ">=20.19.0"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
   },
   "gitHead": "b0bfba9810f1da460cf09cf9aabeeaae2650596f"
 }

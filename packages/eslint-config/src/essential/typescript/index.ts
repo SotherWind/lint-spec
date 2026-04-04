@@ -1,6 +1,6 @@
 import type { Linter } from 'eslint';
+import tsRuleConfig from '@/rules/typescript';
 import defaultEssentialConfig from '../index';
-import tsRuleConfig from '../../rules/typescript';
 import tsBlacklistRuleConfig from '../rules/ts-blacklist';
 
 export default [

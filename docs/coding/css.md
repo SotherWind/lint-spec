@@ -1,5 +1,12 @@
 ---
 title: CSS 编码规范
+categories:
+  - 编码规范
+tags:
+  - 编码规范
+author:
+  name: 澄怀
+  link: https://github.com/encode-studio-fe/fe-spec
 ---
 
 # CSS 编码规范
@@ -32,62 +39,72 @@ title: CSS 编码规范
   }
   ```
 
-- 1.1.2.【推荐】使用 2 个空格缩进，不要使用 4 个空格或 tab 缩进。`stylelint`: [indentation](https://stylelint.io/user-guide/rules/indentation)
+- 1.1.2.【推荐】使用 2 个空格缩进，不要使用 4 个空格或 tab 缩进。`stylelint`: [indentation](https://github.com/stylelint-stylistic/stylelint-stylistic/blob/main/lib/rules/indentation/README.md)
 
   ```css
-  /* bad */
+  /* bad - 使用了 tab 缩进 */
+  .selector {
+  	padding-left: 15px;
+  }
+
+  /* bad - 使用了 4 个空格缩进 */
   .selector {
       padding-left: 15px;
   }
 
-  /* good */
+  /* good - 使用 2 个空格缩进 */
   .selector {
     padding-left: 15px;
   }
   ```
 
-- 1.1.3.【推荐】选择器和 `{` 之间保留一个空格。`stylelint`: [block-opening-brace-space-before](https://stylelint.io/user-guide/rules/block-opening-brace-space-before)
+- 1.1.3.【推荐】选择器和 `{` 之间保留一个空格。`stylelint`: [block-opening-brace-space-before](https://github.com/stylelint-stylistic/stylelint-stylistic/blob/main/lib/rules/block-opening-brace-space-before/README.md)
 
   ```css
   /* bad */
-  .selector{
-    padding-left: 15px;
-  }
+  a{ color: pink; }
+  a
+  { color: pink; }
 
   /* good */
-  .selector {
-    padding-left: 15px;
-  }
+  a { color: pink; }
+  a {
+  color: pink; }
   ```
 
-- 1.1.4.【推荐】属性名和 `:` 之前无空格，`:` 和属性值之间保留一个空格。`stylelint`: [declaration-colon-space-after](https://stylelint.io/user-guide/rules/declaration-colon-space-after) [declaration-colon-space-before](https://stylelint.io/user-guide/rules/declaration-colon-space-before)
+- 1.1.4.【推荐】属性名和 `:` 之前无空格，`:` 和属性值之间保留一个空格。`stylelint`: [declaration-colon-space-after](https://github.com/stylelint-stylistic/stylelint-stylistic/blob/main/lib/rules/declaration-colon-space-after/README.md) [declaration-colon-space-before](https://github.com/stylelint-stylistic/stylelint-stylistic/blob/main/lib/rules/declaration-colon-space-before/README.md)
 
   ```css
-  /* bad */
+  /* bad - 冒号前有空格 */
+  .selector {
+    margin-top : 10px;
+  }
+
+  /* bad - 冒号后无空格 */
   .selector {
     margin-top:10px;
-    padding-left:15px;
   }
 
-  /* good */
+  /* good - 冒号前无空格，冒号后有空格 */
   .selector {
     margin-top: 10px;
-    padding-left: 15px;
   }
   ```
 
-- 1.1.5.【推荐】`>`、`+`、`~` 、`||` 等组合器前后各保留一个空格。`stylelint`: [selector-combinator-space-before](https://stylelint.io/user-guide/rules/selector-combinator-space-before) [selector-combinator-space-after](https://stylelint.io/user-guide/rules/selector-combinator-space-after)
+- 1.1.5.【推荐】`>`、`+`、`~` 、`||` 等组合器前后各保留一个空格。`stylelint`: [selector-combinator-space-before](https://github.com/stylelint-stylistic/stylelint-stylistic/blob/main/lib/rules/selector-combinator-space-before/README.md) [selector-combinator-space-after](https://github.com/stylelint-stylistic/stylelint-stylistic/blob/main/lib/rules/selector-combinator-space-after/README.md)
 
   ```css
-  /* bad */
+  /* bad - 组合器前无空格 */
   .selector>.children {
     padding-left: 15px;
   }
-  .selector+.brother {
+
+  /* bad - 组合器后无空格 */
+  .selector> .children {
     padding-left: 15px;
   }
 
-  /* good */
+  /* good - 组合器前后都有空格 */
   .selector > .children {
     padding-left: 15px;
   }
@@ -96,19 +113,19 @@ title: CSS 编码规范
   }
   ```
 
-- 1.1.6.【推荐】在使用 `,` 分隔的属性值中，`,` 之后保留一个空格。`stylelint`: [value-list-comma-space-after](https://stylelint.io/user-guide/rules/value-list-comma-space-after)
+- 1.1.6.【推荐】在使用 `,` 分隔的属性值中，`,` 之后保留一个空格。`stylelint`: [value-list-comma-space-after](https://github.com/stylelint-stylistic/stylelint-stylistic/blob/main/lib/rules/value-list-comma-space-after/README.md)
 
   ```css
-  /* bad */
+  /* bad - 逗号后无空格 */
   .selector {
     background-color: rgba(0,0,0,0.5);
-    box-shadow: 0px 1px 2px rgba(0,0,0,0.5),inset 0 1px 0 rgba(255,255,255,0.5);
+    box-shadow: 0px 1px 2px #000,inset 0 1px 0 #fff;
   }
 
-  /* good */
+  /* good - 逗号后有空格 */
   .selector {
     background-color: rgba(0, 0, 0, 0.5);
-    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.5);
+    box-shadow: 0px 1px 2px #000, inset 0 1px 0 #fff;
   }
   ```
 
@@ -135,7 +152,7 @@ title: CSS 编码规范
   }
   ```
 
-- 1.1.8.【推荐】声明块的右大括号 `}` 应单独成行。
+- 1.1.8.【推荐】声明块的右大括号 `}` 应单独成行。`stylelint`: [block-closing-brace-newline-before](https://github.com/stylelint-stylistic/stylelint-stylistic/blob/main/lib/rules/block-closing-brace-newline-before/README.md)
 
   ```css
   /* bad */
@@ -147,48 +164,55 @@ title: CSS 编码规范
   }
   ```
 
-- 1.1.9.【推荐】属性声明应单独成行。`stylelint`: [declaration-block-single-line-max-declarations](https://stylelint.io/user-guide/rules/declaration-block-single-line-max-declarations)
+- 1.1.9.【推荐】单行声明块中最多只能有一条声明。`stylelint`: [declaration-block-single-line-max-declarations](https://stylelint.io/user-guide/rules/declaration-block-single-line-max-declarations)
 
   ```css
-  /* bad */
+  /* bad - 单行声明块中包含多条声明 */
   .selector { padding-left: 15px; margin-left: 10px; }
 
-  /* good */
+  /* good - 单行声明块中只有一条声明 */
+  .selector { padding-left: 15px; }
+
+  /* good - 多行声明块中可以有多个声明 */
   .selector {
     padding-left: 15px;
     margin-left: 10px;
   }
   ```
 
-- 1.1.10.【推荐】单行代码最多不要超过 100 个字符。 `stylelint`: [max-line-length](https://stylelint.io/user-guide/rules/max-line-length) 除了以下两种情况：
-
+- 1.1.10.【推荐】单行代码最多不要超过 100 个字符。 `stylelint`: [max-line-length](https://github.com/stylelint-stylistic/stylelint-stylistic/blob/main/lib/rules/max-line-length/README.md) 除了以下两种情况：
   - 使用 [`url()`](https://developer.mozilla.org/en-US/docs/Web/CSS/url) 函数时
   - CSS 属性值本身无法换行时，即属性值内无空格或逗号时
 
   ```css
-  /* bad */
-  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0.04, rgb(88, 94, 124)), color-stop(0.52, rgb(115, 123, 162)));
+  /* bad - 单行超过 100 个字符 */
+  .selector { background-image: linear-gradient(to right, rgba(255, 255, 255, 0.5), rgba(0, 0, 0, 0.5)); }
 
-  /* good */
-  background-image: -webkit-gradient(
-    linear,
-    left bottom,
-    left top,
-    color-stop(0.04, rgb(88, 94, 124)),
-    color-stop(0.52, rgb(115, 123, 162))
-  );
+  /* good - 换行后每行不超过 100 个字符 */
+  .selector {
+    background-image: linear-gradient(
+      to right,
+      rgba(255, 255, 255, 0.5),
+      rgba(0, 0, 0, 0.5)
+    );
+  }
+
+  /* good - url() 函数可以超过 100 个字符 */
+  .selector {
+    background: url('https://example.com/very/long/path/to/image/that/exceeds/one/hundred/characters.png');
+  }
   ```
 
-- 1.1.11.【参考】使用多个选择器时，每个选择器应该单独成行。`stylelint`: [selector-list-comma-newline-after](https://stylelint.io/user-guide/rules/selector-list-comma-newline-after)
+- 1.1.11.【参考】使用多个选择器时，每个选择器应该单独成行。`stylelint`: [selector-list-comma-newline-after](https://github.com/stylelint-stylistic/stylelint-stylistic/blob/main/lib/rules/selector-list-comma-newline-after/README.md)
 
   ```css
-  /* bad */
+  /* bad - 多个选择器在同一行 */
   .selector, .selector-secondary, .selector-third {
     padding: 15px;
     margin-bottom: 15px;
   }
 
-  /* good */
+  /* good - 每个选择器单独成行 */
   .selector,
   .selector-secondary,
   .selector-third {
@@ -197,13 +221,13 @@ title: CSS 编码规范
   }
   ```
 
-- 1.1.12.【参考】声明块内只有一条语句时，也应该写成多行。
+- 1.1.12.【参考】声明块内只有一条语句时，也应该写成多行。`stylelint`: [declaration-block-single-line-max-declarations](https://stylelint.io/user-guide/rules/declaration-block-single-line-max-declarations)
 
   ```css
-  /* bad */
+  /* bad - 单行声明块 */
   .selector { padding-left: 15px; }
 
-  /* good */
+  /* good - 多行声明块 */
   .selector {
     padding-left: 15px;
   }
@@ -238,20 +262,14 @@ title: CSS 编码规范
 
   ```css
   /* bad */
-  .normal {
-    padding: 10px;
-  }
-  #special {
-    padding: 15px;
-  }
-
+  #foo {}
+  #foo #baz {}
+  #foo #bar #baz {}
+  
   /* good */
-  .normal {
-    padding: 10px;
-  }
-  .normal.special {
-    padding: 15px;
-  }
+  .foo {}
+  .foo .baz {}
+  .foo .bar .baz {}
   ```
 
 - 1.2.2.【参考】属性选择器的值始终用双引号包裹。`stylelint`: [selector-attribute-quotes](https://stylelint.io/user-guide/rules/selector-attribute-quotes)
@@ -260,18 +278,18 @@ title: CSS 编码规范
 
   ```css
   /* bad */
-  input[type=text] {
-    height: 20px;
-  }
+  [title=flower] {}
+  [class^=top] {}
 
   /* good */
-  input[type='text'] {
-    height: 20px;
-  }
+  [title] {}
+  [target="_blank"] {}
+  [class|="top"] {}
+  [title~='text'] {}
+  [data-attribute='component'] {}
   ```
 
 - 1.2.3.【参考】使用 `CSS` 选择器时，应注意以下性能问题：
-
   - 使用 `class` 而不是原生元素标签
   - 减少在经常出现的组件中使用个别属性选择器（如 `[class^="..."]`）
   - 控制选择器的长度，每个组合选择器内的条目尽量不超过 3 个
@@ -294,30 +312,36 @@ title: CSS 编码规范
 
   ```css
   /* bad */
-  .selector {
-    color: #ffffff;
-  }
+  .selector { color: #ffffff; }
+  .selector { color: #ffffffaa; }
 
   /* good */
-  .selector {
-    color: #fff;
-  }
+  .selector { color: #fff; }
+  .selector { color: #fffa; }
+  .selector { color: #a4a4a4; }
   ```
 
-- 1.3.2.【推荐】不要使用 `!important` 重写样式。
+- 1.3.2.【推荐】不要使用 `!important` 重写样式。`stylelint`: [declaration-no-important](https://stylelint.io/user-guide/rules/declaration-no-important)
 
-- 1.3.3.【推荐】十六进制值统一使用小写字母（小写字母更容易分辨）。`stylelint`: [color-hex-case](https://stylelint.io/user-guide/rules/color-hex-case)
+```css
+/* bad */
+.selector { color: pink !important; }
+.selector { color: pink ! important; }
+.selector { color: pink!important; }
+
+/* good */
+.selector { color: pink; }
+```
+
+- 1.3.3.【推荐】十六进制值统一使用小写字母（小写字母更容易分辨）。`stylelint`: [color-hex-case](https://github.com/stylelint-stylistic/stylelint-stylistic/blob/main/lib/rules/color-hex-case/README.md)
 
   ```css
   /* bad */
-  .selector {
-    color: #FEFEFE;
-  }
+  .selector { color: #FFF; }
 
   /* good */
-  .selector {
-    color: #fefefe;
-  }
+  .selector { color: #000; }
+  .selector { color: #fff; }
   ```
 
 - 1.3.4.【推荐】长度值为 0 时，省略掉长度单位。`stylelint`: [length-zero-no-unit](https://stylelint.io/user-guide/rules/length-zero-no-unit)
@@ -326,38 +350,31 @@ title: CSS 编码规范
 
   ```css
   /* bad */
-  .selector {
-    margin-top: 0px;
-    font-size: 0em;
-  }
+  .selector { top: 0px; }
+  .selector { top: 0.000em; }
 
   /* good */
-  .selector {
-    margin-top: 0;
-    font-size: 0;
-  }
+  .selector { top: 0; } /* no unit */
+  .selector { transition-delay: 0s; } /* dimension */
+  .selector { top: 2in; }
+  .selector { top: 1.001vh; }
   ```
 
-- 1.3.5.【参考】保留小数点前的 0。`stylelint`: [number-leading-zero](https://stylelint.io/user-guide/rules/number-leading-zero)
+- 1.3.5.【参考】保留小数点前的 0。`stylelint`: [number-leading-zero](https://github.com/stylelint-stylistic/stylelint-stylistic/blob/main/lib/rules/number-leading-zero/README.md)
 
   在 CSS 中，大于 -1 小于 1 的小数，小数点前的 0 可以省略：
 
   ```css
   /* bad */
-  .selector {
-    opacity: .5;
-    left: -.5px;
-  }
+  .selector { line-height: .5; }
+  .selector { transform: translate(2px, .4px); }
 
   /* good */
-  .selector {
-    opacity: 0.5;
-    left: -0.5px;
-  }
+  .selector { line-height: 0.5; }
+  .selector { transform: translate(2px, 0.4px); }
   ```
 
   对于是否省略小数点前的 0，业界存在争议：
-
   - 省略 0 的好处是：代码更简洁，可以减少一个字符
   - 不省略的好处是：代码可读性更好、一致性更强
 
@@ -368,7 +385,6 @@ title: CSS 编码规范
 - 1.3.6.【参考】属性声明的顺序。
 
   相关联的属性声明最好写成一组，并按如下顺序排序：
-
   1. **定位**：如 `position`、`left`、`right`、`top`、`bottom`、`z-index`
   2. **盒模型**：如 `display`、`float`、`width`、`height`、`margin`、`padding`、`border`
   3. **文字排版**：如 `font`、`color`、`line-height`、`text-align`
@@ -397,7 +413,9 @@ title: CSS 编码规范
     border: 1px solid #e5e5e5;
 
     /* 排版 */
-    font: normal 13px 'Helvetica Neue', sans-serif;
+    font:
+      normal 13px 'Helvetica Neue',
+      sans-serif;
     line-height: 1.5;
     color: #333;
     text-align: center;
@@ -410,10 +428,34 @@ title: CSS 编码规范
   }
   ```
 
+  更多 CSS 属性顺序参考如下列表：
+
+  | 第一组         | 第二组     | 第三组               | 第四组             | 第五组         | 第六组        | 第七组       |
+  | -------------- | ---------- | -------------------- | ------------------ | -------------- | ------------- | ------------ |
+  | content        | box-sizing | background\*         | font\*             | opacity        | unicode-bidi  | transition\* |
+  | position       | \*width    | color                | src                | visibility     | direction     | transform\*  |
+  | top            | \*height   | box-decoration-break | line-height        | filter         | columns       | animation\*  |
+  | right          | margin\*   | box-shadow           | letter-spacing     | resize         | column-\*     |              |
+  | bottom         | padding\*  | outline\*            | quotes             | cursor         | break-\*      |              |
+  | left           | border\*   | table-layout         | counter-\*         | pointer-events | page-break-\* |              |
+  | z-index        |            | caption-side         | -ms-writing-mode   | user-select    | orphans       |              |
+  | display        |            | empty-cells          | text-\*            |                | widows        |              |
+  | vertical-align |            | list-style\*         | white-space        |                | \*zoom        |              |
+  | flex\*         |            |                      | word-\*            |                | orientation   |              |
+  | grid\*         |            |                      | overflow-wrap      |                | fill          |              |
+  | \*gap          |            |                      | tab-size           |                | stroke        |              |
+  | align-\*       |            |                      | hyphens            |                |               |              |
+  | justify-\*     |            |                      | interpolation-mode |                |               |              |
+  | order          |            |                      |                    |                |               |              |
+  | float          |            |                      |                    |                |               |              |
+  | clear          |            |                      |                    |                |               |              |
+  | object-fit     |            |                      |                    |                |               |              |
+  | overflow\*     |            |                      |                    |                |               |              |
+  | clip           |            |                      |                    |                |               |              |
+
 - 1.3.7.【参考】适时使用简写属性。`stylelint`: [declaration-block-no-shorthand-property-overrides](https://stylelint.io/user-guide/rules/declaration-block-no-shorthand-property-overrides) [declaration-block-no-redundant-longhand-properties](https://stylelint.io/user-guide/rules/declaration-block-no-redundant-longhand-properties)
 
   常见的[简写属性](https://developer.mozilla.org/en-US/docs/Web/CSS/Shorthand_properties)包括：
-
   - `font`
   - `background`
   - `padding`
@@ -427,14 +469,10 @@ title: CSS 编码规范
 
   ```css
   /* bad */
-  .selector {
-    margin: 0 0 10px;
-  }
+  .selector { padding: 0 0 0 10px; }
 
   /* good */
-  .selector {
-    margin-bottom: 10px;
-  }
+  .selector { padding-left: 20px; }
   ```
 
 ### 1.4. 其他
@@ -443,7 +481,7 @@ title: CSS 编码规范
 
   与 `<link>` 相比，`@import` 会在关键渲染路径上增加更多的往返（即关键路径的深度变长），这样会导致浏览器处理 CSS 文件速度变慢，因此我们应该避免使用 `@import`。
 
-  ```html
+  ```css
   <!-- bad -->
   <style>
     @import url("more.css");
@@ -492,7 +530,6 @@ title: CSS 编码规范
   ```
 
 - 2.3.【推荐】按如下顺序组织 Sass / Less 代码：
-
   - `@import` 语句
   - 全局变量声明
   - 样式声明
@@ -508,7 +545,6 @@ title: CSS 编码规范
   ```
 
 - 2.4.【推荐】对于 `Sass` 和 `Less`，块内的属性声明按如下顺序排序：
-
   - 标准属性声明：除了 `mixin` 调用、`extend` 子级选择器的声明，其他属性声明的顺序与「属性声明的顺序」章节的规则一致
   - mixin 调用：`Sass` 的 `@include` 声明、`Less` 的 `mixin` 调用
   - 嵌套的子级选择器：将嵌套的选择器放到块的末尾，并且在其上方保留一行空行
@@ -526,7 +562,6 @@ title: CSS 编码规范
   ```
 
 - 2.5.【推荐】嵌套选择器的深度不要超过 3 层，否则可能带来一些副作用：
-
   - 与 `HTML` 结构强耦合，难以复用
   - 过高的[选择器优先级](https://developer.mozilla.org/en-US/docs/Web/CSS/Specificity)
 

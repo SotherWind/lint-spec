@@ -78,10 +78,15 @@ const initAction = async (option: InitOption) => {
 
     if (!disableNpmInstall) {
       log.info(`Step ${++step}. Install dependencies`);
-      spawn.sync(npm, ['install', '--save-dev', PACKAGE_NAME], {
+      log.info(`npm的类型：${npm}，包名：${PACKAGE_NAME}， cwd：${cwd}`);
+      try {
+        spawn.sync(npm, ['install', '--save-dev', PACKAGE_NAME], {
         cwd,
         stdio: 'inherit',
       });
+      } catch (error) {
+        log.error(`报错信息：${error}`)
+      }
       log.success(`Step ${step}. Install dependencies successfully`);
     }
   }

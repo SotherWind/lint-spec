@@ -1,8 +1,8 @@
-import reactConfig from '../react';
+import type { Linter } from 'eslint';
+import reactConfig from '@/react';
 import setStyleToWarnRuleConfig from './rules/set-style-to-warn';
 import blacklistRuleConfig from './rules/blacklist';
 import es6BlacklistRuleConfig from './rules/es6-blacklist';
-import type { Linter } from 'eslint';
 
 export default [
   ...reactConfig,

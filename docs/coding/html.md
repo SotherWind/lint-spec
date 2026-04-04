@@ -1,5 +1,12 @@
 ---
 title: HTML 编码规范
+categories:
+  - 编码规范
+tags:
+  - 编码规范
+author:
+  name: 澄怀
+  link: https://github.com/encode-studio-fe/fe-spec
 ---
 
 # HTML 编码规范
@@ -56,7 +63,7 @@ title: HTML 编码规范
 
 - 1.3.2.【推荐】页面提供给移动设备使用时，需要设置 [viewport](https://drafts.csswg.org/css-device-adapt/#viewport-meta)。
 
-  设置 `viewport-fit` 设置为"cover"来兼容 `iPhone X` 的刘海屏，[了解更多](https://webkit.org/blog/7929/designing-websites-for-iphone-x/) 。
+  设置 `viewport-fit` 设置为“cover”来兼容 `iPhone X` 的刘海屏，[了解更多](https://webkit.org/blog/7929/designing-websites-for-iphone-x/) 。
 
   ```html
   <meta name="viewport" content="width=device-width, minimum-scale=1.0, viewport-fit=cover" />
@@ -65,7 +72,7 @@ title: HTML 编码规范
 ### 1.4. 资源加载
 
 - 1.4.1.【推荐】引入 `CSS` 和 `JavaScript` 时无需指定 `type`。
-  根据 HTML5 规范，引入 `CSS` 和 `JavaScript` 时通常不需要指明 `type`，因为 [text/css](https://html.spec.whatwg.org/multipage/obsolete.html#attr-style-type) 和 [text/javascript](https://html.spec.whatwg.org/multipage/scripting.html#attr-script-type) 分别是他们的默认值。
+  根据 `HTML5` 规范，引入 `CSS` 和 `JavaScript` 时通常不需要指明 `type`，因为 [text/css](https://html.spec.whatwg.org/multipage/obsolete.html#attr-style-type) 和 [text/javascript](https://html.spec.whatwg.org/multipage/scripting.html#attr-script-type) 分别是他们的默认值。
 
   ```html
   <!-- bad -->
@@ -85,11 +92,11 @@ title: HTML 编码规范
 
 - 1.4.2.【推荐】在 `head` 标签内引入 `CSS`，在 `body` 结束标签前引入 `JS`。
 
-  在 `<body></body>` 中指定外部样式表和嵌入式样式块可能会导致页面的重排和重绘，对页面的渲染造成影响。因此，一般情况下，CSS 应在 `<head></head>` 标签里引入，[了解更多](https://www.yahoo.com/performance/rules.html#css_top)。
+  在 `<body></body>` 中指定外部样式表和嵌入式样式块可能会导致页面的重排和重绘，对页面的渲染造成影响。因此，一般情况下，CSS 应在 `<head></head>` 标签里引入，[了解更多](https://developer.yahoo.com/performance/rules.html#css_top)。
 
-  > 在 `HTTP2`（Chrome 浏览器 69 版本之后，`Firefox` 和 `Edge`）中可以在 `body` 中使用 `link` 标签引入样式文件，但不推荐在 `body` 中使用 `<style>` 标签的内联样式。**`<link rel="stylesheet">`。
+  > 在 `HTTP2`（Chrome 浏览器 69 版本之后，`Firefox` 和 `Edge`）中可以在 `body` 中使用 `link` 标签引入样式文件，但不推荐在 `body` 中使用 `<style>` 标签的内联样式。\*\*`<link rel="stylesheet">`。
 
-  除了基础库等必须要在 DOM 加载之前运行的 JavaScript 脚本，其他都在靠近 `body` 结束标签前引入，以防止出现页面渲染的阻塞，[了解更多](https://www.yahoo.com/performance/rules.html#js_bottom)。
+  除了基础库等必须要在 DOM 加载之前运行的 JavaScript 脚本，其他都在靠近 `body` 结束标签前引入，以防止出现页面渲染的阻塞，[了解更多](https://developer.yahoo.com/performance/rules.html#js_bottom)。
 
   ```html
   <!-- bad -->
@@ -235,7 +242,7 @@ title: HTML 编码规范
 
   ```html
   <!-- bad -->
-  <link rel='stylesheet' href='example.css' />
+  <link rel="stylesheet" href="example.css" />
 
   <!-- good -->
   <link rel="stylesheet" href="example.css" />
@@ -277,9 +284,9 @@ title: HTML 编码规范
 
 - 2.5.1.【参考】尽量根据语义使用 HTML 标签。
 
-  `HTML` 标签（更严谨的叫法是 HTML 元素）都有其语义，例如 `p` 标签即"paragraphs"用于章节，`a` 标签即"anchors"用于锚点链接，[了解更多](https://www.w3.org/TR/2018/WD-html53-20181018/fullindex.html#index-elements)。
+  `HTML` 标签（更严谨的叫法是 HTML 元素）都有其语义，例如 `p` 标签即“paragraphs”用于章节，`a` 标签即“anchors”用于锚点链接，[了解更多](https://www.w3.org/TR/2018/WD-html53-20181018/fullindex.html#index-elements)。
 
-  我们应优先选取符合当下所需语义的标签，这有助于[可访问性（Accessibility）](https://developer.mozilla.org/zh-CN/docs/learn/Accessibility)，也可以在 CSS 加载失败时获得较好的展示效果。
+  我们应优先选取符合当下所需语义的标签，这既有助于[可访问性（Accessibility）](https://developer.mozilla.org/zh-CN/docs/learn/Accessibility)，也可以在 CSS 加载失败时获得较好的展示效果。
 
   ```html
   <!-- bad -->
@@ -301,7 +308,7 @@ title: HTML 编码规范
 
 - 2.6.1.【参考】注意 `HTML` 的可访问性（`Accessibility`）。
 
-  网页可访问性使网页内容落实"无障碍"，让不同程度或需求的用户可以顺畅的获取网站上的信息。传统上我们认为这只与残疾人士有关，但提升网站的可访问性也可以让其他用户群体受益，比如使用移动设备的人群或低速网络的人群。
+  网页可访问性使网页内容落实“无障碍”，让不同程度或需求的用户可以顺畅的获取网站上的信息。传统上我们认为这只与残疾人士有关，但提升网站的可访问性也可以让其他用户群体受益，比如使用移动设备的人群或低速网络的人群。
 
   例如，为 `img` 标签设置 `alt` 属性：
 

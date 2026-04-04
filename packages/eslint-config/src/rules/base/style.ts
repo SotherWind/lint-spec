@@ -21,12 +21,6 @@ export default {
     // 大括号换行风格：one true brace style 风格，且单行代码块可不换行
     '@stylistic/brace-style': ['error', '1tbs', { allowSingleLine: true }],
 
-    // 使用小驼峰命名风格
-    camelcase: 'off',
-
-    // 强制或禁止对注释的第一个字母大写
-    'capitalized-comments': 'off',
-
     // 用逗号分隔的多行结构，始终加上最后一个逗号（单行不用）
     '@stylistic/comma-dangle': ['error', 'always-multiline'],
 
@@ -39,41 +33,14 @@ export default {
     // 方括号内部两侧无空格-计算属性
     '@stylistic/computed-property-spacing': ['error', 'never'],
 
-    // 使用一致的 this 别名
-    'consistent-this': 'off',
-
     // 在文件末尾保留一行空行
     '@stylistic/eol-last': ['warn', 'always'],
 
     // 函数名与调用它的括号间无空格
     '@stylistic/function-call-spacing': ['error', 'never'],
 
-    // 要求函数名与赋值给它们的变量名或属性名相匹配
-    'func-name-matching': [
-      'off',
-      'always',
-      {
-        includeCommonJSModuleExports: false,
-      },
-    ],
-
-    // 要求或禁止命名的函数表达式
-    'func-names': 'off',
-
-    // 强制只能使用函数声明或函数表达式
-    'func-style': 'off',
-
     // 在函数的小括号内使用一致的换行风格
     '@stylistic/function-paren-newline': ['error', 'consistent'],
-
-    // 禁用指定的标识符
-    'id-denylist': 'off',
-
-    // 强制标识符的最小和最大长度
-    'id-length': 'off',
-
-    // 要求标识符匹配一个指定的正则表达式
-    'id-match': 'off',
 
     // 隐式返回的箭头函数体不要换行
     // @reason 同 prettier 有冲突
@@ -88,7 +55,6 @@ export default {
         SwitchCase: 1,
         VariableDeclarator: 1,
         outerIIFEBody: 1,
-        // MemberExpression: null,
         FunctionDeclaration: {
           parameters: 1,
           body: 1,
@@ -104,7 +70,6 @@ export default {
         ObjectExpression: 1,
         ImportDeclaration: 1,
         flatTernaryExpressions: false,
-        // 列表来源于 https://github.com/benjamn/ast-types/blob/HEAD/def/jsx.js
         ignoredNodes: [
           'JSXElement',
           'JSXElement > *',
@@ -123,6 +88,10 @@ export default {
         ignoreComments: false,
       },
     ],
+
+    // JSX 属性使用双引号，不要使用单引号
+    // @unessential
+    '@stylistic/jsx-quotes': ['error', 'prefer-double'],
 
     // 定义对象字面量时，key, value 之间有且只有一个空格
     '@stylistic/key-spacing': [
@@ -144,6 +113,29 @@ export default {
       },
     ],
 
+    // 单行注释应单独一行写在被注释对象的上方，不要追加在某条语句的后面
+    '@stylistic/line-comment-position': [
+      'off',
+      {
+        position: 'above',
+        ignorePattern: '',
+        applyDefaultPatterns: true,
+      },
+    ],
+
+    // 指定 unix 或 windows 风格的换行符
+    '@stylistic/linebreak-style': 'off',
+
+    // 类成员之间保留一个空行
+    '@stylistic/lines-between-class-members': [
+      'off',
+      'always',
+      { exceptAfterSingleLine: false },
+    ],
+
+    // 要求在注释周围有空行
+    '@stylistic/lines-around-comment': 'off',
+
     // 单行最大字符数：100
     '@stylistic/max-len': [
       'warn',
@@ -158,11 +150,55 @@ export default {
       },
     ],
 
+    // 每一行中所允许的最大语句数量
+    '@stylistic/max-statements-per-line': ['off', { max: 1 }],
+
+    // 多行注释的风格
+    '@stylistic/multiline-comment-style': ['off', 'starred-block'],
+
+    // 要求或禁止在三元操作数中间换行
+    '@stylistic/multiline-ternary': ['off', 'never'],
+
+    // 禁止在调用构造函数时省略小括号
+    '@stylistic/new-parens': 'error',
+
+    // 在长方法链式调用时进行换行
+    '@stylistic/new-per-chained-call': ['warn', { ignoreChainWithDepth: 4 }],
+
+    // 混合使用多种操作符时，用小括号包裹分组
+    '@stylistic/no-mixed-operators': [
+      'error',
+      {
+        groups: [
+          ['%', '**'],
+          ['%', '+'],
+          ['%', '-'],
+          ['%', '*'],
+          ['%', '/'],
+          ['**', '+'],
+          ['**', '-'],
+          ['**', '*'],
+          ['**', '/'],
+          ['&', '|', '^', '~', '<<', '>>', '>>>'],
+          ['==', '!=', '===', '!==', '>', '>=', '<', '<='],
+          ['&&', '||'],
+          ['in', 'instanceof'],
+        ],
+        allowSamePrecedence: false,
+      },
+    ],
+
     // 不要混用空格和 tab
     '@stylistic/no-mixed-spaces-and-tabs': 'error',
 
+    // 禁止连续赋值
+    '@stylistic/no-multi-assign': ['error'],
+
     // 禁止出现多个（大于 2 个）连续空行
     '@stylistic/no-multiple-empty-lines': ['error', { max: 2, maxEOF: 1 }],
+
+    // 禁止使用 tab
+    '@stylistic/no-tabs': 'error',
 
     // 行尾不要留有空格
     '@stylistic/no-trailing-spaces': [
@@ -183,6 +219,9 @@ export default {
       { overrides: {} },
     ],
 
+    // 强制大括号内换行符的一致性
+    '@stylistic/object-curly-newline': 'off',
+
     // 大括号内部两侧有空格
     '@stylistic/object-curly-spacing': ['error', 'always'],
 
@@ -197,11 +236,17 @@ export default {
     // 一行声明一个变量
     '@stylistic/one-var-declaration-per-line': ['error', 'always'],
 
+    // 强制操作符使用一致的换行符
+    '@stylistic/operator-linebreak': 'off',
+
     // 块的开始和结束不能是空行
     '@stylistic/padded-blocks': [
       'warn',
       { blocks: 'never', classes: 'never', switches: 'never' },
     ],
+
+    // 要求或禁止在语句间填充空行
+    '@stylistic/padding-line-between-statements': 'off',
 
     // 对象字面量的属性名不要用引号包裹，除非包含特殊字符
     '@stylistic/quote-props': [
@@ -237,8 +282,191 @@ export default {
       },
     ],
 
+    // 小括号内部两侧无空格
+    '@stylistic/space-in-parens': ['error', 'never'],
+
+    // 中缀操作符两侧有空格
+    '@stylistic/space-infix-ops': 'error',
+
+    // 一元操作符两侧无空格，包括 -、+、--、++、!、!!
+    '@stylistic/space-unary-ops': [
+      'error',
+      {
+        words: true,
+        nonwords: false,
+        overrides: {},
+      },
+    ],
+
+    // 注释内容和注释符之间需留有一个空格
+    '@stylistic/spaced-comment': [
+      'error',
+      'always',
+      {
+        line: {
+          exceptions: ['-', '+'],
+          markers: ['=', '!', '/'],
+        },
+        block: {
+          exceptions: ['-', '+'],
+          markers: ['=', '!'],
+          balanced: true,
+        },
+      },
+    ],
+
+    // switch 的 case 和 default 子句冒号前面无空格，后面有空格
+    '@stylistic/switch-colon-spacing': [
+      'error',
+      { after: true, before: false },
+    ],
+
+    // 模板字符串的 tag 后面无空格
+    '@stylistic/template-tag-spacing': ['error', 'never'],
+
+    // 要求正则表达式被括号括起来
+    '@stylistic/wrap-regex': 'off',
+
+    // ==================== eslint 规则 ====================
+    // 使用小驼峰命名风格
+    camelcase: 'off',
+
+    // 强制或禁止对注释的第一个字母大写
+    'capitalized-comments': 'off',
+
+    // 使用一致的 this 别名
+    'consistent-this': 'off',
+
+    // 要求函数名与赋值给它们的变量名或属性名相匹配
+    'func-name-matching': [
+      'off',
+      'always',
+      {
+        includeCommonJSModuleExports: false,
+      },
+    ],
+
+    // 要求或禁止命名的函数表达式
+    'func-names': 'off',
+
+    // 强制只能使用函数声明或函数表达式
+    'func-style': 'off',
+
+    // 禁用指定的标识符
+    'id-denylist': 'off',
+
+    // 强制标识符的最小和最大长度
+    'id-length': 'off',
+
+    // 要求标识符匹配一个指定的正则表达式
+    'id-match': 'off',
+
+    // 控制语句的嵌套层级不要过深，不要超过 4 级
+    // @reason 适合做后置检查
+    'max-depth': ['off', 4],
+
+    // 文件最大行数：1000
+    // @reason 适合做后置检查
+    'max-lines': [
+      'off',
+      {
+        max: 1000,
+        skipBlankLines: true,
+        skipComments: true,
+      },
+    ],
+
+    // 函数最大行数：80
+    // @reason 适合做后置检查
+    'max-lines-per-function': [
+      'off',
+      {
+        max: 80,
+        skipBlankLines: true,
+        skipComments: true,
+        IIFEs: true,
+      },
+    ],
+
+    // 回调函数最大嵌套深度
+    'max-nested-callbacks': 'off',
+
+    // 函数参数数量上限
+    'max-params': ['off', 3],
+
+    // 函数块最多允许的的语句数量
+    'max-statements': ['off', 10],
+
+    // 使用大驼峰风格命名类和构造函数
+    'new-cap': [
+      'error',
+      {
+        newIsCap: true,
+        newIsCapExceptions: [],
+        capIsNew: false,
+        capIsNewExceptions: [
+          'Immutable.Map',
+          'Immutable.Set',
+          'Immutable.List',
+        ],
+      },
+    ],
+
+    // 不要使用 new Array() 和 Array() 创建数组，除非为了构造某一长度的空数组。
+    'no-array-constructor': 'error',
+
+    // 不要使用按位操作符
+    'no-bitwise': 'warn',
+
+    // 禁用 continue 语句
+    'no-continue': 'off',
+
+    // 禁止行内注释
+    'no-inline-comments': 'off',
+
+    // 禁止 if 作为唯一语句出现在 else 中，此时应写成 else if
+    'no-lonely-if': 'error',
+
+    // 否定表达式
+    'no-negated-condition': 'off',
+
+    // 不要使用嵌套的三元表达式
+    'no-nested-ternary': 'error',
+
+    // 不要使用一元自增自减运算符
+    'no-plusplus': ['off', { allowForLoopAfterthoughts: true }],
+
+    // 禁用特定的语法
+    'no-restricted-syntax': 'off',
+
+    // 禁用三元操作符
+    'no-ternary': 'off',
+
+    // 命名不要以下划线开头或结尾
+    'no-underscore-dangle': 'off',
+
+    // 避免不必要的三元表达式
+    'no-unneeded-ternary': ['error', { defaultAssignment: false }],
+
     // 使用字面量创建对象，此规则不允许在没有参数的情况下调用Object构造函数
     'no-object-constructor': 'error',
+
+    // 一条声明语句声明一个变量
+    'one-var': ['error', 'never'],
+
+    // 尽可能使用简写形式的赋值操作符
+    'operator-assignment': ['warn', 'always'],
+
+    // 使用扩展运算符替代 Object.assign
+    'prefer-object-spread': 'off',
+
+    // 要求对对象属性名排序
+    'sort-keys': ['off', 'asc', { caseSensitive: false, natural: true }],
+
+    // 要求对变量声明排序
+    'sort-vars': 'off',
+
+    // 要求或禁止 Unicode 字节顺序标记 (BOM)
+    'unicode-bom': ['off', 'never'],
   },
 };
-

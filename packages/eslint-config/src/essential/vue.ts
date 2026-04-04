@@ -1,8 +1,8 @@
-import vueConfig from '../vue';
+import type { Linter } from 'eslint';
+import vueConfig from '@/vue';
 import setStyleToWarnRuleConfig from './rules/set-style-to-warn';
 import blacklistRuleConfig from './rules/blacklist';
 import es6BlacklistRuleConfig from './rules/es6-blacklist';
-import type { Linter } from 'eslint';
 
 export default [
   ...vueConfig,

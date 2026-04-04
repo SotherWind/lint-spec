@@ -2,7 +2,10 @@
   "name": "@lint-spec/markdownlint-config",
   "version": "1.0.8",
   "description": "",
-  "main": "lib/index.json",
+  "main": "dist/index.json",
+  "scripts": {
+    "build": "cpy \"src/*.json\" dist/ --parents"
+  },
   "keywords": [
     "markdownlint",
     "markdownlint-config"
@@ -24,5 +27,8 @@
   },
   "peerDependencies": {
     "markdownlint": "^0.40.0"
+  },
+  "devDependencies": {
+    "cpy-cli": "^7.0.0"
   }
 }

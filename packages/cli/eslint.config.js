@@ -13,6 +13,6 @@ export default defineConfig([
       '@typescript-eslint/no-require-imports': 0,
       'no-console': 0,
     },
-    ignores: ['node_modules/', 'dist/**/*', 'test/', 'src/config'],
+    ignores: ['node_modules/', 'dist/', 'test/', 'src/config'],
   }
 ]);

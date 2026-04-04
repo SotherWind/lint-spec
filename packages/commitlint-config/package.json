@@ -2,11 +2,19 @@
   "name": "@lint-spec/commitlint-config",
   "version": "1.0.8",
   "description": "Lint commit messages",
-  "main": "index.js",
+  "type": "module",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "rimraf dist && tsc"
+  },
   "keywords": [
     "commit",
     "commitlint",
     "commitlint-config"
+  ],
+  "files": [
+    "dist"
   ],
   "author": "",
   "license": "ISC",
@@ -18,18 +26,17 @@
   "bugs": {
     "url": "https://github.com/encode-studio-fe/fe-spec/issues"
   },
-  "type": "module",
   "exports": {
     ".": {
-      "import": "./index.js"
+      "import": "./dist/index.js"
     }
   },
-  "files": [
-    "index.js"
-  ],
+  "devDependencies": {
+    "@commitlint/types": "^20.5.0"
+  },
   "dependencies": {
-    "@commitlint/config-conventional": "^20.4.0",
-    "conventional-changelog-atom": "^5.0.0"
+    "@commitlint/config-conventional": "^20.5.0",
+    "conventional-changelog-atom": "^5.1.0"
   },
   "publishConfig": {
     "access": "public",
@@ -39,3 +46,4 @@
     "node": ">=20.19.0"
   }
 }
+

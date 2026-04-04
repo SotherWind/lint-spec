@@ -30,9 +30,8 @@
     "url": "https://github.com/encode-studio-fe/fe-spec/issues"
   },
   "devDependencies": {
-    "stylelint": "^17.0.0"
-  },
-  "dependencies": {
+    "@stylistic/stylelint-plugin": "^5.1.0",
+    "stylelint": "^17.0.0",
     "stylelint-config-standard-scss": "^17.0.0"
   },
   "peerDependencies": {
