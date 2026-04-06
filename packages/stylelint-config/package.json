@@ -1,6 +1,6 @@
 {
   "name": "@lint-spec/stylelint-config",
-  "version": "1.0.9",
+  "version": "1.0.12",
   "description": "stylelint-config",
   "module": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -35,7 +35,7 @@
   "devDependencies": {
     "@babel/core": "^7.29.0",
     "@babel/eslint-parser": "^7.28.6",
-    "@lint-spec/eslint-config": "^1.0.8",
+    "@lint-spec/eslint-config": "^1.0.12",
     "@stylistic/eslint-plugin": "^5.7.1",
     "@stylistic/stylelint-plugin": "^5.1.0",
     "eslint": "^9.39.2",

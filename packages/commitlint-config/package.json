@@ -1,6 +1,6 @@
 {
   "name": "@lint-spec/commitlint-config",
-  "version": "1.0.8",
+  "version": "1.0.12",
   "description": "commitlint-config",
   "type": "module",
   "module": "dist/index.js",

@@ -1,6 +1,6 @@
 {
   "name": "@lint-spec/eslint-plugin",
-  "version": "1.0.8",
+  "version": "1.0.12",
   "description": "",
   "module": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -27,7 +27,6 @@
   },
   "author": "SotherWind",
   "license": "ISC",
-  "packageManager": "pnpm@10.29.2",
   "homepage": "https://github.com/SotherWind/lint-spec#readme",
   "repository": {
     "type": "git",
