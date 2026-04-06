@@ -4,7 +4,7 @@ title: lint-spec
 titleTemplate: false
 
 hero:
-  name: 前端编码规范工程化
+  name: 前端编码规范工程化xiug
   tagline: 前端编码规范工程化
   image:
     light: /img/light-logo.png
