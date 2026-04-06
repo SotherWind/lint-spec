@@ -1,6 +1,6 @@
 {
   "name": "@lint-spec/eslint-plugin",
-  "version": "1.0.12",
+  "version": "1.0.13",
   "description": "eslint-plugin",
   "module": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -41,7 +41,7 @@
   "devDependencies": {
     "@babel/core": "^7.29.0",
     "@babel/eslint-parser": "^7.28.6",
-    "@lint-spec/eslint-config": "1.0.12",
+    "@lint-spec/eslint-config": "^1.0.13",
     "@stylistic/eslint-plugin": "^5.7.1",
     "eslint": "^9.39.2",
     "eslint-import-resolver-typescript": "^4.4.4",
