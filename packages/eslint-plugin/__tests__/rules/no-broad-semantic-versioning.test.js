@@ -1,5 +1,5 @@
 import { RuleTester } from 'eslint';
-import rule from '../../lib/rules/no-broad-semantic-versioning.js';
+import rule from '../../dist/rules/no-broad-semantic-versioning.js';
 
 const ruleTester = new RuleTester();
 

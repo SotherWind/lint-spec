@@ -1,10 +1,9 @@
 {
   "name": "@lint-spec/eslint-plugin",
   "version": "1.0.12",
-  "description": "",
+  "description": "eslint-plugin",
   "module": "dist/index.js",
   "types": "dist/index.d.ts",
-  "packageManager": "pnpm@10.29.2",
   "type": "module",
   "scripts": {
     "test": "mocha ./__tests__/**/*.test.js --timeout=5000",
@@ -27,6 +26,7 @@
   },
   "author": "SotherWind",
   "license": "ISC",
+  "packageManager": "pnpm@10.29.2",
   "homepage": "https://github.com/SotherWind/lint-spec#readme",
   "repository": {
     "type": "git",
@@ -41,7 +41,7 @@
   "devDependencies": {
     "@babel/core": "^7.29.0",
     "@babel/eslint-parser": "^7.28.6",
-    "@lint-spec/eslint-config": "workspace:*",
+    "@lint-spec/eslint-config": "1.0.12",
     "@stylistic/eslint-plugin": "^5.7.1",
     "eslint": "^9.39.2",
     "eslint-import-resolver-typescript": "^4.4.4",
@@ -55,5 +55,6 @@
   },
   "engines": {
     "node": ">=20.19.0"
-  }
+  },
+  "gitHead": "1be5076eb571fcebced7b04bfb29ddc90513d045"
 }

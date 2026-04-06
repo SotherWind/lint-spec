@@ -1,5 +1,5 @@
 import { RuleTester } from 'eslint';
-import rule from '../../lib/rules/no-js-in-ts-project.js';
+import rule from '../../dist/rules/no-js-in-ts-project.js';
 
 const ruleTester = new RuleTester();
 

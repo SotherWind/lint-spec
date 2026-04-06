@@ -1,5 +1,5 @@
 import { RuleTester } from 'eslint';
-import rule from '../../lib/rules/no-secret-info.js';
+import rule from '../../dist/rules/no-secret-info.js';
 
 const ruleTester = new RuleTester();
 

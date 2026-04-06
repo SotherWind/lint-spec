@@ -1,5 +1,5 @@
 import { RuleTester } from 'eslint';
-import rule from '../../lib/rules/no-http-url.js';
+import rule from '../../dist/rules/no-http-url.js';
 
 const ruleTester = new RuleTester();
 

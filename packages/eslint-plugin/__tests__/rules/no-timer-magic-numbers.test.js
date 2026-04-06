@@ -1,5 +1,5 @@
 import { RuleTester } from 'eslint';
-import rule from '../../lib/rules/no-timer-magic-numbers.js';
+import rule from '../../dist/rules/no-timer-magic-numbers.js';
 
 const ruleTester = new RuleTester();
 
