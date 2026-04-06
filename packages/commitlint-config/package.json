@@ -1,7 +1,7 @@
 {
   "name": "@lint-spec/commitlint-config",
   "version": "1.0.8",
-  "description": "Lint commit messages",
+  "description": "commitlint-config",
   "type": "module",
   "module": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -16,20 +16,21 @@
   "files": [
     "dist"
   ],
-  "author": "",
-  "license": "ISC",
-  "homepage": "https://github.com/encode-studio-fe/fe-spec#readme",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/encode-studio-fe/fe-spec.git"
-  },
-  "bugs": {
-    "url": "https://github.com/encode-studio-fe/fe-spec/issues"
-  },
   "exports": {
     ".": {
       "import": "./dist/index.js"
     }
+  },
+  "author": "SotherWind",
+  "license": "ISC",
+  "packageManager": "pnpm@10.29.2",
+  "homepage": "https://github.com/SotherWind/lint-spec#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SotherWind/lint-spec.git"
+  },
+  "bugs": {
+    "url": "https://github.com/SotherWind/lint-spec/issues"
   },
   "devDependencies": {
     "@commitlint/types": "^20.5.0"
@@ -46,4 +47,3 @@
     "node": ">=20.19.0"
   }
 }
-

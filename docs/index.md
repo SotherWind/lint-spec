@@ -1,22 +1,22 @@
 ---
 layout: home
-title: 印客学院
+title: lint-spec
 titleTemplate: false
 
 hero:
-  name: 印客学院
-  text: 前端编码规范工程化
+  name: 前端编码规范工程化
   tagline: 前端编码规范工程化
   image:
-    src: /img/logo.png
-    alt: 印客学院
+    light: /img/light-logo.png
+    dark: /img/dark-logo.png
+    alt: 前端编码规范工程化
   actions:
     - theme: brand
       text: 立刻进入 →
       link: /coding/html
     - theme: alt
       text: GitHub
-      link: https://github.com/encode-studio-fe/fe-spec
+      link: https://github.com/SotherWind/lint-spec
 
 features:
   - title: 全面的前端生态
@@ -51,23 +51,23 @@ features:
 
 我们引入了多个业界流行的 `Linter` 作为规范文档的配套工具，并根据规范内容定制了对应的规则包，它们包括：
 
-| 规范 | Lint 工具 | NPM 包 |
-| --- | --- | --- |
-| JavaScript 编码规范 <br/> TypeScript 编码规范 <br/> Node 编码规范 | [ESLint](https://eslint.org/) | [encode-fe-eslint-config](https://www.npmjs.com/package/encode-fe-eslint-config) |
-| CSS 编码规范 | [stylelint](https://stylelint.io/) | [encode-fe-stylelint-config](https://www.npmjs.com/package/encode-fe-stylelint-config) |
-| Git 规范 | [commitlint](https://commitlint.js.org/#/) | [encode-fe-commitlint-config](https://www.npmjs.com/package/encode-fe-commitlint-config) |
-| 文档规范 | [markdownlint](https://github.com/DavidAnson/markdownlint) | [encode-fe-markdownlint-config](https://www.npmjs.com/package/encode-fe-markdownlint-config) |
-| ESLint 插件 | [ESLint Plugin](https://eslint.org/docs/latest/extend/plugins) | [encode-fe-eslint-plugin](https://www.npmjs.com/package/encode-fe-eslint-plugin) |
+| 规范                                                              | Lint 工具                                                      | NPM 包                                                                                         |
+| ----------------------------------------------------------------- | -------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
+| JavaScript 编码规范 <br/> TypeScript 编码规范 <br/> Node 编码规范 | [ESLint](https://eslint.org/)                                  | [@lint-spec/eslint-config](https://www.npmjs.com/package/@lint-spec/eslint-config)             |
+| CSS 编码规范                                                      | [stylelint](https://stylelint.io/)                             | [@lint-spec/stylelint-config](https://www.npmjs.com/package/@lint-spec/stylelint-config)       |
+| Git 规范                                                          | [commitlint](https://commitlint.js.org/#/)                     | [@lint-spec/commitlint-config](https://www.npmjs.com/package/@lint-spec/commitlint-config)     |
+| 文档规范                                                          | [markdownlint](https://github.com/DavidAnson/markdownlint)     | [@lint-spec/markdownlint-config](https://www.npmjs.com/package/@lint-spec/markdownlint-config) |
+| ESLint 插件                                                       | [ESLint Plugin](https://eslint.org/docs/latest/extend/plugins) | [@lint-spec/eslint-plugin](https://www.npmjs.com/package/@lint-spec/eslint-plugin)             |
 
-[encode-fe-lint](https://www.npmjs.com/package/encode-fe-lint) 收敛屏蔽了上述依赖和配置细节，提供简单的 `CLI` 和 `Node.js API`，让项目能够一键接入、一键扫描、一键修复、一键升级，并为项目配置 git commit 卡口，降低项目接入规范的成本。
+[@lint-spec/cli](https://www.npmjs.com/package/@lint-spec/cli) 收敛屏蔽了上述依赖和配置细节，提供简单的 `CLI` 和 `Node.js API`，让项目能够一键接入、一键扫描、一键修复、一键升级，并为项目配置 git commit 卡口，降低项目接入规范的成本。
 
-您可以使用[encode-fe-lint](https://www.npmjs.com/package/encode-fe-lint)方便地为项目接入全部规范。
+您可以使用[@lint-spec/cli](https://www.npmjs.com/package/@lint-spec/cli)方便地为项目接入全部规范。
 
 </br>
 
 ## :email: 联系
 
 - **印客学院官网**: <http://encodestudio.cn>
-- **GitHub**: <https://github.com/encode-studio-fe/fe-spec>
+- **GitHub**: <https://github.com/SotherWind/lint-spec>
 
 </br>

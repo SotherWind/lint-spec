@@ -10,7 +10,7 @@ SCSS LESS CSS 规范
 
 支持配套的 [stylelint 可共享配置](https://stylelint.io/user-guide/configure)。
 
-### 依赖
+## 依赖
 
 - [stylelint](https://www.npmjs.com/package/stylelint)@^17.0.0
 - [stylelint-config-standard-scss](https://www.npmjs.com/package/stylelint-config-standard-scss)@^17.0.0

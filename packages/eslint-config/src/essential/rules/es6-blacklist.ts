@@ -47,7 +47,7 @@ export default {
 
     // import 语句需要放到模块的最上方
     // @unessential
-    'import/first': 'warn',
+    'import-x/first': 'warn',
 
     // 使用对象属性和方法的简写语法
     // @unessential

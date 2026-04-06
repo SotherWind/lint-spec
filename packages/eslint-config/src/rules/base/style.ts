@@ -163,7 +163,10 @@ export default {
     '@stylistic/new-parens': 'error',
 
     // 在长方法链式调用时进行换行
-    '@stylistic/new-per-chained-call': ['warn', { ignoreChainWithDepth: 4 }],
+    '@stylistic/newline-per-chained-call': [
+      'warn',
+      { ignoreChainWithDepth: 4 },
+    ],
 
     // 混合使用多种操作符时，用小括号包裹分组
     '@stylistic/no-mixed-operators': [
@@ -191,8 +194,8 @@ export default {
     // 不要混用空格和 tab
     '@stylistic/no-mixed-spaces-and-tabs': 'error',
 
-    // 禁止连续赋值
-    '@stylistic/no-multi-assign': ['error'],
+    // 禁止连续赋值 (ESLint 核心规则)
+    'no-multi-assign': ['error'],
 
     // 禁止出现多个（大于 2 个）连续空行
     '@stylistic/no-multiple-empty-lines': ['error', { max: 2, maxEOF: 1 }],

@@ -1,7 +1,7 @@
 {
   "name": "@lint-spec/cli",
   "version": "1.0.11",
-  "description": "cli",
+  "description": "Lint CLI",
   "type": "module",
   "module": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -9,17 +9,31 @@
     "lint-spec": "dist/bin/cli.js"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "mocha ./__tests__/**/*.test.js --timeout=10000",
     "copyfiles": "cpy \"src/config/**\" dist/config --parents",
     "build": "rimraf dist && tsc && tsc-alias && pnpm run copyfiles"
   },
-  "keywords": [],
+  "keywords": [
+    "lint-spec",
+    "cli",
+    "lint-spec-cli",
+    "lint-spec/cli",
+    "@lint-spec/cli"
+  ],
   "files": [
     "dist"
   ],
-  "author": "",
+  "author": "SotherWind",
   "license": "ISC",
   "packageManager": "pnpm@10.29.2",
+  "homepage": "https://github.com/SotherWind/lint-spec#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SotherWind/lint-spec.git"
+  },
+  "bugs": {
+    "url": "https://github.com/SotherWind/lint-spec/issues"
+  },
   "devDependencies": {
     "@types/command-exists": "^1.2.3",
     "@types/cross-spawn": "^6.0.6",
@@ -51,7 +65,7 @@
     "eslint": "^9.39.2",
     "eslint-config-prettier": "^10.1.8",
     "eslint-import-resolver-typescript": "^4.4.4",
-    "eslint-plugin-import": "^2.32.0",
+    "eslint-plugin-import-x": "^4.16.2",
     "eslint-plugin-jsx-a11y": "^6.10.2",
     "eslint-plugin-react": "^7.37.5",
     "eslint-plugin-react-hooks": "^7.0.1",
@@ -78,6 +92,5 @@
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org/"
-  },
-  "gitHead": "b0bfba9810f1da460cf09cf9aabeeaae2650596f"
+  }
 }

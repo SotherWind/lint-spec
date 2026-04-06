@@ -1,4 +1,5 @@
 import nodePlugin from 'eslint-plugin-n';
+import globals from 'globals';
 import type { Linter } from 'eslint';
 
 /**
@@ -8,6 +9,11 @@ import type { Linter } from 'eslint';
 export default [
   nodePlugin.configs['flat/recommended'],
   {
+    languageOptions: {
+      globals: {
+        ...globals.node,
+      },
+    },
     rules: {
       /**
        * 禁止对 require 调用使用 new 操作符

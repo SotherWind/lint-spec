@@ -62,13 +62,13 @@ author:
 
   ```css
   /* bad */
-  a{ color: pink; }
-  a
+  .selector { color: pink; }
+  .selector
   { color: pink; }
 
   /* good */
-  a { color: pink; }
-  a {
+  .selector { color: pink; }
+  .selector {
   color: pink; }
   ```
 
@@ -265,7 +265,7 @@ author:
   #foo {}
   #foo #baz {}
   #foo #bar #baz {}
-  
+
   /* good */
   .foo {}
   .foo .baz {}

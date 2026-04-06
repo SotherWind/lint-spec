@@ -16,4 +16,5 @@ release/
 node_modules/
 
 .cache/
+.vitepress/cache/
 out/

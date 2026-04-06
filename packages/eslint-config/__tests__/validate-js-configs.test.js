@@ -23,18 +23,32 @@ describe('Validate JS Configs', () => {
     });
   });
 
-  // 验证导出的 config 是否正常
-  it('Validate the exported eslint config', async () => {
+  it('should export a valid eslint config object', async () => {
     const config = await eslint.calculateConfigForFile(filePath);
     assert.ok(isObject(config));
+    assert.ok(keys(config.rules).length > 0, 'Config should have rules');
   });
 
-  // 验证 lint 工作是否正常
-  it('Validate the exported eslint works properly', async () => {
+  it('should lint files without fatal errors and detect issues', async () => {
     const results = await eslint.lintFiles(filePath);
-    assert.equal(sumBy(results, 'fatalErrorCount'), 0);
-    assert.notEqual(sumBy(results, 'errorCount'), 0);
-    assert.notEqual(sumBy(results, 'warningCount'), 0);
+    const { errorCount, warningCount, messages } = results[0];
+    const ruleIds = messages.map((m) => m.ruleId);
+
+    assert.equal(
+      sumBy(results, 'fatalErrorCount'),
+      0,
+      'Should have no fatal errors',
+    );
+    // 验证具体的错误和警告数量
+    assert.strictEqual(errorCount, 4, 'Should have exactly 4 errors');
+    assert.strictEqual(warningCount, 1, 'Should have exactly 1 warning');
+
+    // 验证关键规则是否生效
+    assert.ok(ruleIds.includes('no-eval'), 'Should detect no-eval violations');
+    assert.ok(
+      ruleIds.includes('no-console'),
+      'Should detect no-console violations',
+    );
   });
 });
 
@@ -50,25 +64,32 @@ describe('Validate ES5 Configs', () => {
     });
   });
 
-  // 验证导出的 config 是否正常
-  it('Validate the exported eslint config', async () => {
+  it('should export a valid eslint config object', async () => {
     const config = await eslint.calculateConfigForFile(filePath);
     assert.ok(isObject(config));
   });
 
-  // 验证 lint 工作是否正常
-  it('Validate the exported eslint works properly', async () => {
+  it('should apply ES5 specific rules correctly', async () => {
     const results = await eslint.lintFiles(filePath);
-    assert.equal(sumBy(results, 'fatalErrorCount'), 0);
-    assert.notEqual(sumBy(results, 'errorCount'), 0);
-    assert.equal(sumBy(results, 'warningCount'), 0);
+    const { errorCount, warningCount, messages } = results[0];
 
-    // 验证 es5 覆盖的规则是否正常，取 comma-dangle 进行测试
-    const { messages } = results[0];
-    const errorReportedByReactPlugin = messages.filter((result) => {
-      return result.ruleId === 'comma-dangle';
-    });
-    assert.notEqual(errorReportedByReactPlugin.length, 0);
+    assert.equal(
+      sumBy(results, 'fatalErrorCount'),
+      0,
+      'Should have no fatal errors',
+    );
+    // 验证具体的错误和警告数量
+    assert.strictEqual(errorCount, 2, 'Should have exactly 2 errors');
+    assert.strictEqual(warningCount, 0, 'Should have exactly 0 warnings');
+
+    // 验证 ES5 特有的 comma-dangle 规则（函数参数不使用拖尾逗号）
+    const commaDangleErrors = messages.filter(
+      (m) => m.ruleId === 'comma-dangle',
+    );
+    assert.ok(
+      commaDangleErrors.length > 0,
+      'Should detect comma-dangle violations in ES5',
+    );
   });
 });
 
@@ -84,25 +105,33 @@ describe('Validate Vue Configs', () => {
     });
   });
 
-  // 验证导出的 config 是否正常
-  it('Validate the exported eslint config', async () => {
+  it('should export a valid eslint config object', async () => {
     const config = await eslint.calculateConfigForFile(filePath);
     assert.ok(isObject(config));
+    assert.ok(
+      keys(config.plugins).includes('vue'),
+      'Should include vue plugin',
+    );
   });
 
-  // 验证 lint 工作是否正常
-  it('Validate the exported eslint works properly', async () => {
+  it('should lint Vue files with vue plugin rules', async () => {
     const results = await eslint.lintFiles(filePath);
-    assert.equal(sumBy(results, 'fatalErrorCount'), 0);
-    assert.notEqual(sumBy(results, 'errorCount'), 0);
-    assert.equal(sumBy(results, 'warningCount'), 0);
+    const { errorCount, warningCount, messages } = results[0];
 
-    // 验证 eslint-plugin-vue 工作是否正常
-    const { messages } = results[0];
-    const errorReportedByReactPlugin = messages.filter((result) => {
-      return result.ruleId && result.ruleId.indexOf('vue/') !== -1;
-    });
-    assert.notEqual(errorReportedByReactPlugin.length, 0);
+    assert.equal(
+      sumBy(results, 'fatalErrorCount'),
+      0,
+      'Should have no fatal errors',
+    );
+    // 验证具体的错误和警告数量
+    assert.strictEqual(errorCount, 4, 'Should have exactly 4 errors');
+    assert.strictEqual(warningCount, 0, 'Should have exactly 0 warnings');
+
+    // 验证 vue plugin 工作是否正常
+    const vueErrors = messages.filter(
+      (m) => m.ruleId && m.ruleId.startsWith('vue/'),
+    );
+    assert.ok(vueErrors.length > 0, 'Should detect vue-specific violations');
   });
 });
 
@@ -118,33 +147,32 @@ describe('Validate Essential JS Configs', () => {
     });
   });
 
-  // 验证导出的 config 是否正常
-  it('Validate the exported eslint config', async () => {
+  it('should export a valid eslint config object', async () => {
     const config = await eslint.calculateConfigForFile(filePath);
     assert.ok(isObject(config));
   });
 
-  // 验证 lint 工作是否正常
-  it('Validate the exported eslint works properly', async () => {
+  it('should have style rules set to warn in essential config', async () => {
     const results = await eslint.lintFiles(filePath);
-    assert.equal(sumBy(results, 'fatalErrorCount'), 0);
-    assert.equal(sumBy(results, 'errorCount'), 0);
-    assert.notEqual(sumBy(results, 'warningCount'), 0);
+    const { errorCount, warningCount, messages } = results[0];
+
+    assert.equal(
+      sumBy(results, 'fatalErrorCount'),
+      0,
+      'Should have no fatal errors',
+    );
+    // 验证具体的错误和警告数量
+    assert.strictEqual(errorCount, 0, 'Should have exactly 0 errors');
+    assert.strictEqual(warningCount, 4, 'Should have exactly 4 warnings');
 
     // 验证黑名单中的规则已关闭
-    const { messages } = results[0];
-
-    // 验证 semi 被关闭
-    const semiErrors = messages.filter((result) => {
-      return result.ruleId === '@stylistic/semi';
-    });
-    assert.equal(semiErrors.length, 0);
-
-    // 验证 @stylistic/comma-spacing 被降级
-    const commaSpacingErrors = messages.filter((result) => {
-      return result.ruleId === '@stylistic/comma-spacing';
-    });
-    assert.equal(commaSpacingErrors[0].severity, 1);
+    // 验证 semi 被关闭（没有 @stylistic/semi 错误）
+    const semiErrors = messages.filter((m) => m.ruleId === '@stylistic/semi');
+    assert.equal(
+      semiErrors.length,
+      0,
+      'semi rule should be disabled in essential',
+    );
   });
 });
 
@@ -160,30 +188,40 @@ describe('Validate Essential ES5 Configs', () => {
     });
   });
 
-  // 验证导出的 config 是否正常
-  it('Validate the exported eslint config', async () => {
+  it('should export a valid eslint config object', async () => {
     const config = await eslint.calculateConfigForFile(filePath);
     assert.ok(isObject(config));
   });
 
-  // 验证 lint 工作是否正常
-  it('Validate the exported eslint works properly', async () => {
+  it('should apply essential ES5 rules correctly', async () => {
     const results = await eslint.lintFiles(filePath);
-    assert.equal(sumBy(results, 'fatalErrorCount'), 0);
-    assert.notEqual(sumBy(results, 'errorCount'), 0);
-    assert.notEqual(sumBy(results, 'warningCount'), 0);
-    // 验证 es5 覆盖的规则是否正常，取 comma-dangle 进行测试
-    const { messages } = results[0];
-    const errorReportedByReactPlugin = messages.filter((result) => {
-      return result.ruleId === 'comma-dangle';
-    });
-    assert.notEqual(errorReportedByReactPlugin.length, 0);
+    const { errorCount, warningCount, messages } = results[0];
 
-    // 验证黑名单中的规则已关闭，取 semi 进行测试
-    const errorReportedByReactPluginBlackList = messages.filter((result) => {
-      return result.ruleId === 'semi';
-    });
-    assert.equal(errorReportedByReactPluginBlackList.length, 0);
+    assert.equal(
+      sumBy(results, 'fatalErrorCount'),
+      0,
+      'Should have no fatal errors',
+    );
+    // 验证具体的错误和警告数量
+    assert.strictEqual(errorCount, 1, 'Should have exactly 1 error');
+    assert.strictEqual(warningCount, 1, 'Should have exactly 1 warning');
+
+    // 验证 ES5 覆盖的规则是否正常
+    const commaDangleErrors = messages.filter(
+      (m) => m.ruleId === 'comma-dangle',
+    );
+    assert.ok(
+      commaDangleErrors.length > 0,
+      'Should detect comma-dangle violations',
+    );
+
+    // 验证黑名单中的 semi 规则已关闭
+    const semiErrors = messages.filter((m) => m.ruleId === 'semi');
+    assert.equal(
+      semiErrors.length,
+      0,
+      'semi rule should be disabled in essential',
+    );
   });
 });
 
@@ -199,31 +237,43 @@ describe('Validate Essential Vue Configs', () => {
     });
   });
 
-  // 验证导出的 config 是否正常
-  it('Validate the exported eslint config', async () => {
+  it('should export a valid eslint config object', async () => {
     const config = await eslint.calculateConfigForFile(filePath);
     assert.ok(isObject(config));
+    assert.ok(
+      keys(config.plugins).includes('vue'),
+      'Should include vue plugin',
+    );
   });
 
-  // 验证 lint 工作是否正常
-  it('Validate the exported eslint works properly', async () => {
+  it('should lint Vue files with essential vue rules', async () => {
     const results = await eslint.lintFiles(filePath);
-    assert.equal(sumBy(results, 'fatalErrorCount'), 0);
-    assert.notEqual(sumBy(results, 'errorCount'), 0);
-    assert.equal(sumBy(results, 'warningCount'), 0);
+    const { errorCount, warningCount, messages } = results[0];
+
+    assert.equal(
+      sumBy(results, 'fatalErrorCount'),
+      0,
+      'Should have no fatal errors',
+    );
+    // 验证具体的错误和警告数量
+    assert.strictEqual(errorCount, 4, 'Should have exactly 4 errors');
+    assert.strictEqual(warningCount, 0, 'Should have exactly 0 warnings');
 
     // 验证 vue plugin 工作是否正常
-    const { messages } = results[0];
-    const errorReportedByReactPlugin = messages.filter((result) => {
-      return result.ruleId && result.ruleId.indexOf('vue/') !== -1;
-    });
-    assert.notEqual(errorReportedByReactPlugin.length, 0);
+    const vueErrors = messages.filter(
+      (m) => m.ruleId && m.ruleId.startsWith('vue/'),
+    );
+    assert.ok(vueErrors.length > 0, 'Should detect vue-specific violations');
 
-    // 验证黑名单中的规则已关闭
-    const errorReportedByReactPluginBlackList = messages.filter((result) => {
-      return result.ruleId === 'indent';
-    });
-    assert.equal(errorReportedByReactPluginBlackList.length, 0);
+    // 验证黑名单中的 indent 规则已关闭
+    const indentErrors = messages.filter(
+      (m) => m.ruleId === '@stylistic/indent',
+    );
+    assert.equal(
+      indentErrors.length,
+      0,
+      'indent rule should be disabled in essential',
+    );
   });
 });
 
@@ -239,32 +289,46 @@ describe('Validate Essential React Configs', () => {
     });
   });
 
-  // 验证导出的 config 是否正常
-  it('Validate the exported eslint config', async () => {
+  it('should export a valid eslint config object', async () => {
     const config = await eslint.calculateConfigForFile(filePath);
     assert.ok(isObject(config));
+    assert.ok(
+      keys(config.plugins).includes('react'),
+      'Should include react plugin',
+    );
   });
 
-  // 验证 lint 工作是否正常
-  it('Validate the exported eslint works properly', async () => {
-    // 验证 lint 工作是否正常
+  it('should lint React files with essential react rules', async () => {
     const results = await eslint.lintFiles(filePath);
-    assert.equal(sumBy(results, 'fatalErrorCount'), 0);
-    assert.notEqual(sumBy(results, 'errorCount'), 0);
-    assert.notEqual(sumBy(results, 'warningCount'), 0);
+    const { errorCount, warningCount, messages } = results[0];
+
+    assert.equal(
+      sumBy(results, 'fatalErrorCount'),
+      0,
+      'Should have no fatal errors',
+    );
+    // 验证具体的错误和警告数量
+    assert.strictEqual(errorCount, 7, 'Should have exactly 7 errors');
+    assert.strictEqual(warningCount, 9, 'Should have exactly 9 warnings');
 
     // 验证 react plugin 工作是否正常
-    const { messages } = results[0];
-    const errorReportedByReactPlugin = messages.filter((result) => {
-      return result.ruleId && result.ruleId.indexOf('react/') !== -1;
-    });
-    assert.notEqual(errorReportedByReactPlugin.length, 0);
+    const reactErrors = messages.filter(
+      (m) => m.ruleId && m.ruleId.startsWith('react/'),
+    );
+    assert.ok(
+      reactErrors.length > 0,
+      'Should detect react-specific violations',
+    );
 
-    // 验证黑名单中的规则已关闭，取 react/jsx-indent 进行测试
-    const errorReportedByReactPluginBlackList = messages.filter((result) => {
-      return result.ruleId === 'react/jsx-indent';
-    });
-    assert.equal(errorReportedByReactPluginBlackList.length, 0);
+    // 验证黑名单中的 react/jsx-indent 规则已关闭
+    const jsxIndentErrors = messages.filter(
+      (m) => m.ruleId === 'react/jsx-indent',
+    );
+    assert.equal(
+      jsxIndentErrors.length,
+      0,
+      'react/jsx-indent rule should be disabled in essential',
+    );
   });
 });
 
@@ -280,29 +344,52 @@ describe('Validate Node Configs', () => {
     });
   });
 
-  // 验证导出的 config 是否正常
-  it('Validate the exported eslint config', async () => {
+  it('should export a valid eslint config object with node plugin', async () => {
     const config = await eslint.calculateConfigForFile(filePath);
     assert.ok(isObject(config));
     assert.strictEqual(get(config, 'languageOptions.globals.Node'), false);
-    assert.strictEqual(keys(config.plugins).includes('n'), true);
+    assert.ok(
+      keys(config.plugins).includes('n'),
+      'Should include node plugin (n)',
+    );
   });
 
-  // 验证 lint 工作是否正常
-  it('Validate the exported eslint works properly', async () => {
+  it('should lint Node.js files with node plugin rules', async () => {
     const results = await eslint.lintFiles(filePath);
     const { messages, errorCount, warningCount } = results[0];
-    const ruleIds = Array.from(messages.map((item) => item.ruleId));
+    const ruleIds = messages.map((m) => m.ruleId);
 
-    assert.strictEqual(ruleIds.includes('n/no-new-require'), true);
-    assert.strictEqual(ruleIds.includes('no-unused-vars'), true);
-    assert.strictEqual(ruleIds.includes('@stylistic/semi'), true);
-    assert.strictEqual(ruleIds.includes('@stylistic/quotes'), true);
+    // 验证关键 node 规则是否生效
+    assert.ok(
+      ruleIds.includes('n/no-new-require'),
+      'Should detect n/no-new-require violations',
+    );
+    assert.ok(
+      ruleIds.includes('n/prefer-promises/fs'),
+      'Should detect n/prefer-promises/fs violations',
+    );
+    assert.ok(
+      ruleIds.includes('no-unused-vars'),
+      'Should detect no-unused-vars violations',
+    );
+    assert.ok(
+      ruleIds.includes('@stylistic/semi'),
+      'Should detect @stylistic/semi violations',
+    );
+    assert.ok(
+      ruleIds.includes('@stylistic/quotes'),
+      'Should detect @stylistic/quotes violations',
+    );
+    assert.ok(ruleIds.includes('no-var'), 'Should detect no-var violations');
 
-    assert.strictEqual(errorCount, 9);
-    assert.strictEqual(warningCount, 3);
+    // 验证具体的错误和警告数量
+    assert.strictEqual(errorCount, 7, 'Should have exactly 7 errors');
+    assert.strictEqual(warningCount, 4, 'Should have exactly 4 warnings');
 
-    // 验证已关闭的 link 规则是否校验正常，以 n/exports-style 为例
-    assert.strictEqual(ruleIds.includes('n/exports-style'), false);
+    // 验证已关闭的 n/exports-style 规则是否未触发
+    assert.ok(
+      !ruleIds.includes('n/exports-style'),
+      'n/exports-style should be disabled',
+    );
   });
 });

@@ -2,9 +2,16 @@
   "extends": "../../tsconfig.pro.json",
   "compilerOptions": {
     "baseUrl": ".",
-    "rootDir": ".",
+    "rootDir": "src",
     "outDir": "dist"
   },
-  "include": ["src"],
-  "exclude": ["node_modules", "dist", "test/**", "__tests__/**"]
+  "include": [
+    "src"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist",
+    "test/**",
+    "__tests__/**"
+  ]
 }

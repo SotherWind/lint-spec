@@ -2,37 +2,49 @@
   "name": "@lint-spec/stylelint-config",
   "version": "1.0.9",
   "description": "stylelint-config",
-  "main": "index.js",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "type": "module",
+  "scripts": {
+    "build": "rimraf dist && tsc",
+    "test": "node --test"
+  },
   "keywords": [
     "stylelint",
     "stylelint-config"
   ],
-  "author": "",
-  "type": "module",
   "exports": {
     ".": {
       "import": "./index.js"
     }
   },
   "files": [
-    "index.js"
+    "dist"
   ],
-  "scripts": {
-    "build": "rollup -c",
-    "test": "node --test"
-  },
+  "author": "SotherWind",
   "license": "ISC",
+  "packageManager": "pnpm@10.29.2",
+  "homepage": "https://github.com/SotherWind/lint-spec#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/encode-studio-fe/fe-spec.git"
+    "url": "git+https://github.com/SotherWind/lint-spec.git"
   },
   "bugs": {
-    "url": "https://github.com/encode-studio-fe/fe-spec/issues"
+    "url": "https://github.com/SotherWind/lint-spec/issues"
   },
   "devDependencies": {
+    "@babel/core": "^7.29.0",
+    "@babel/eslint-parser": "^7.28.6",
+    "@lint-spec/eslint-config": "^1.0.8",
+    "@stylistic/eslint-plugin": "^5.7.1",
     "@stylistic/stylelint-plugin": "^5.1.0",
+    "eslint": "^9.39.2",
+    "eslint-import-resolver-typescript": "^4.4.4",
+    "eslint-plugin-import-x": "^4.16.2",
+    "globals": "^17.3.0",
     "stylelint": "^17.0.0",
-    "stylelint-config-standard-scss": "^17.0.0"
+    "stylelint-config-standard-scss": "^17.0.0",
+    "typescript-eslint": "^8.54.0"
   },
   "peerDependencies": {
     "stylelint": "^17.0.0"

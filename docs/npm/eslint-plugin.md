@@ -1,13 +1,13 @@
 ---
-title: encode-fe-eslint-plugin
+title: eslint-plugin
 ---
 
-# encode-fe-eslint-plugin
+# @lint-spec/eslint-plugin
 
 除了本包，你需要同时安装 [ESlint](https://eslint.org/)
 
 ```shell
-npm install encode-fe-eslint-plugin eslint --save-dev
+npm install --save-dev @lint-spec/eslint-plugin eslint
 ```
 
 ## 使用
@@ -15,22 +15,30 @@ npm install encode-fe-eslint-plugin eslint --save-dev
 ### 引入插件
 
 ```js
-// .eslintrc.js
-module.exports = {
-  plugin: ['encode-fe-eslint-config'],
-  rules: {
-    'encode-fe-eslint-plugin/no-secret-info': 'error',
+// eslint.config.js
+
+import lintSpecPlugin from '@lint-spec/eslint-plugin';
+import { defineConfig } from 'eslint/config';
+
+export default defineConfig({
+  plugin: {
+    '@lint-spec': lintSpecPlugin,
   },
-};
+  rules: {
+    '@lint-spec/no-secret-info': 'error',
+  },
+});
 ```
 
 ### 使用 presets
 
 ```js
-// .eslintrc.js
-module.exports = {
-  extends: 'plugin:encode-fe-eslint-plugin/recommended',
-};
+// eslint.config.js
+
+import lintSpecPlugin from '@lint-spec/eslint-plugin';
+import { defineConfig } from 'eslint/config';
+
+export default defineConfig(lintSpecPlugin.configs.recommended);
 ```
 
 ## 支持的规则
@@ -50,3 +58,7 @@ module.exports = {
 ### `no-secret-info`
 
 不在代码中直接通过纯文本值设置 `password` `token` 和 `secret` 信息。
+
+### `no-timer-magic-numbers`
+
+不在定时器中使用魔法数字。

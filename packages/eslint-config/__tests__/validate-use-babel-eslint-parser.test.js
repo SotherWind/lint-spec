@@ -18,19 +18,23 @@ describe('Validate Use Babel Eslint Parser For React', () => {
     });
   });
 
-  it('Validate babel eslint parser run well for react', async () => {
+  it('should lint React files with babel eslint parser without fatal errors', async () => {
     const results = await eslint.lintFiles(filePath);
     const { messages, errorCount, fatalErrorCount, warningCount } = results[0];
 
-    assert.equal(fatalErrorCount, 0);
-    assert.equal(errorCount, 27);
-    assert.equal(warningCount, 7);
+    assert.equal(fatalErrorCount, 0, 'Should have no fatal errors');
+    // 验证具体的错误和警告数量
+    assert.strictEqual(errorCount, 27, 'Should have exactly 27 errors');
+    assert.strictEqual(warningCount, 7, 'Should have exactly 7 warnings');
 
-    const errorReportedByReactPlugin = messages.filter((result) => {
-      return result.ruleId && result.ruleId.indexOf('react/') !== -1;
-    });
-
-    assert.notEqual(errorReportedByReactPlugin.length, 0);
+    // 验证 react 插件工作是否正常
+    const reactErrors = messages.filter(
+      (m) => m.ruleId && m.ruleId.startsWith('react/'),
+    );
+    assert.ok(
+      reactErrors.length > 0,
+      'Should detect react-specific violations',
+    );
   });
 });
 
@@ -46,12 +50,13 @@ describe('Validate Use Babel Eslint Parser For Vue', () => {
     });
   });
 
-  it('Validate babel eslint parser run well for vue', async () => {
+  it('should lint Vue files with babel eslint parser without fatal errors', async () => {
     const results = await eslint.lintFiles(filePath);
     const { errorCount, fatalErrorCount, warningCount } = results[0];
 
-    assert.equal(fatalErrorCount, 0);
-    assert.equal(errorCount, 4);
-    assert.equal(warningCount, 0);
+    assert.equal(fatalErrorCount, 0, 'Should have no fatal errors');
+    // 验证具体的错误和警告数量
+    assert.strictEqual(errorCount, 4, 'Should have exactly 4 errors');
+    assert.strictEqual(warningCount, 0, 'Should have exactly 0 warnings');
   });
 });

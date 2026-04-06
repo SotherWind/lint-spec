@@ -3,14 +3,14 @@ import { defineConfig } from 'vitepress';
 export default defineConfig({
   title: 'lint-spec',
   description: '前端编码规范工程化',
-  base: '/lint-spec/',
+  base: '/',
   lang: 'zh-CN',
   head: [
-    ['link', { rel: 'icon', href: '/img/logo.png' }],
+    ['link', { rel: 'icon', href: '/img/light-logo.png' }],
     ['meta', { name: 'keywords', content: '前端编码规范工程化' }],
   ],
   themeConfig: {
-    logo: '/img/logo.png',
+    logo: '/img/light-logo.png',
     editLink: {
       pattern:
         'https://github.com/encode-studio-fe/fe-spec/edit/main/docs/:path',

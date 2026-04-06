@@ -31,7 +31,7 @@ jobs:
         run: pnpm install --frozen-lockfile
 
       - name: Build Docs
-        run: pnpm run docs:build
+        run: pnpm run docs:build --base /lint-spec/
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4

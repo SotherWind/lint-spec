@@ -17,8 +17,6 @@
     "eslintplugin",
     "eslint-plugin"
   ],
-  "author": "",
-  "license": "ISC",
   "files": [
     "dist"
   ],
@@ -26,6 +24,17 @@
     ".": {
       "import": "./dist/index.js"
     }
+  },
+  "author": "SotherWind",
+  "license": "ISC",
+  "packageManager": "pnpm@10.29.2",
+  "homepage": "https://github.com/SotherWind/lint-spec#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SotherWind/lint-spec.git"
+  },
+  "bugs": {
+    "url": "https://github.com/SotherWind/lint-spec/issues"
   },
   "peerDependencies": {
     "eslint": ">=9.0.0"
@@ -37,7 +46,7 @@
     "@stylistic/eslint-plugin": "^5.7.1",
     "eslint": "^9.39.2",
     "eslint-import-resolver-typescript": "^4.4.4",
-    "eslint-plugin-import": "^2.32.0",
+    "eslint-plugin-import-x": "^4.16.2",
     "globals": "^17.3.0",
     "typescript-eslint": "^8.54.0"
   },

@@ -10,7 +10,7 @@ Git Commit Message 规范
 
 支持配套的 [commitlint 配置](https://commitlint.js.org/reference/configuration.html)，用于对 `git commit message` 进行校验。
 
-### 依赖
+## 依赖
 
 - [@commitlint/cli](https://www.npmjs.com/package/@commitlint/cli)@^20.4.1
 

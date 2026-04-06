@@ -1,7 +1,8 @@
 {
   "name": "@lint-spec/eslint-config",
   "version": "1.0.8",
-  "description": "",
+  "description": "eslint-config",
+  "type": "module",
   "module": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
@@ -14,12 +15,9 @@
     "eslintconfig",
     "eslint-config"
   ],
-  "author": "",
-  "license": "ISC",
   "files": [
     "dist"
   ],
-  "type": "module",
   "exports": {
     ".": {
       "import": "./dist/index.js"
@@ -50,6 +48,17 @@
     },
     "./package.json": "./package.json"
   },
+  "author": "SotherWind",
+  "license": "ISC",
+  "packageManager": "pnpm@10.29.2",
+  "homepage": "https://github.com/SotherWind/lint-spec#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SotherWind/lint-spec.git"
+  },
+  "bugs": {
+    "url": "https://github.com/SotherWind/lint-spec/issues"
+  },
   "devDependencies": {
     "@babel/core": "^7.29.0",
     "@babel/eslint-parser": "^7.28.6",
@@ -58,7 +67,7 @@
     "@types/eslint-plugin-jsx-a11y": "^6.10.1",
     "eslint": "^9.39.2",
     "eslint-import-resolver-typescript": "^4.4.4",
-    "eslint-plugin-import": "^2.32.0",
+    "eslint-plugin-import-x": "^4.16.2",
     "eslint-plugin-jsx-a11y": "^6.10.2",
     "eslint-plugin-n": "^17.23.2",
     "eslint-plugin-react": "^7.37.5",
@@ -77,6 +86,5 @@
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org/"
-  },
-  "gitHead": "b0bfba9810f1da460cf09cf9aabeeaae2650596f"
+  }
 }

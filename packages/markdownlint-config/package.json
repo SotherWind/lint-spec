@@ -1,34 +1,37 @@
 {
   "name": "@lint-spec/markdownlint-config",
   "version": "1.0.8",
-  "description": "",
+  "description": "markdownlint-config",
   "main": "dist/index.json",
   "scripts": {
-    "build": "cpy \"src/*.json\" dist/ --parents"
+    "build": "rimraf dist && cpy \"src/*.json\" dist/ --parents"
   },
   "keywords": [
     "markdownlint",
     "markdownlint-config"
   ],
-  "author": "",
+  "files": [
+    "dist"
+  ],
+  "author": "SotherWind",
   "license": "ISC",
   "packageManager": "pnpm@10.29.2",
-  "homepage": "https://github.com/encode-studio-fe/fe-spec#readme",
+  "homepage": "https://github.com/SotherWind/lint-spec#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/encode-studio-fe/fe-spec.git"
+    "url": "git+https://github.com/SotherWind/lint-spec.git"
   },
   "bugs": {
-    "url": "https://github.com/encode-studio-fe/fe-spec/issues"
-  },
-  "publishConfig": {
-    "access": "public",
-    "registry": "https://registry.npmjs.org/"
+    "url": "https://github.com/SotherWind/lint-spec/issues"
   },
   "peerDependencies": {
     "markdownlint": "^0.40.0"
   },
   "devDependencies": {
     "cpy-cli": "^7.0.0"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
   }
 }
