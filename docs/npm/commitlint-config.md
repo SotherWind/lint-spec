@@ -40,10 +40,25 @@ export default {
 npm install --save-dev husky
 ```
 
+初始化 `husky`:
+
+```bash
+# husky@v9
+npx husky init
+
+# husky@v8 or lower
+npx husky install
+```
+
 然后执行添加`commit-msg`:
 
 ```bash
-npx husky add .husky/commit-msg 'npx commitlint --edit $1'
+# npx husky add .husky/commit-msg 'npx commitlint --edit $1'
+
+# Add commit message linting to commit-msg hook
+echo "npx --no -- commitlint --edit \$1" > .husky/commit-msg
+# Windows users should use ` to escape dollar signs
+echo "npx --no -- commitlint --edit `$1`" > .husky/commit-msg
 ```
 
 更多信息可参考 [commitlint 文档](https://commitlint.js.org/#/guides-local-setup?id=install-husky)。

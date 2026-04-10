@@ -4,9 +4,9 @@ const JS_REG = /\.jsx?$/;
 
 const DEFAULT_WHITE_LIST = [
   'commitlint.config.js',
-  'eslintrc.js',
+  'eslint.config.js',
+  'stylelint.config.js',
   'prettierrc.js',
-  'stylelintrc.js',
 ];
 
 export default {

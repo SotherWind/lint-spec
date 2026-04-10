@@ -13,11 +13,7 @@
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
     "skipDefaultLibCheck": true,
-    "baseUrl": ".",
     "lib": ["esnext", "dom"],
-    "paths": {
-      "@/*": ["src/*"]
-    },
     "types": ["node"]
   }
 }
